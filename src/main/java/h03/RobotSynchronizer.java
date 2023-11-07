@@ -2,27 +2,34 @@ package h03;
 
 import fopbot.Direction;
 import fopbot.Robot;
+import fopbot.World;
 
-public class SyncBot {
+public class RobotSynchronizer {
 
     private final Robot[] robots;
     private int x = -1, y = -1;
-    private Direction direction;
+    private Direction direction = null;
 
-    public SyncBot(Robot[] robots) {
+    public RobotSynchronizer(Robot[] robots) {
         this.robots = robots;
     }
 
     public void setX(int x) {
-        this.x = x;
+        if (x >= 0 && x < World.getWidth()) {
+            this.x = x;
+        }
     }
 
     public void setY(int y) {
-        this.y = y;
+        if (y >= 0 && y < World.getHeight()) {
+            this.y = y;
+        }
     }
 
     public void setDirection(Direction direction) {
-        this.direction = direction;
+        if (direction != null) {
+            this.direction = direction;
+        }
     }
 
     public void sync() {

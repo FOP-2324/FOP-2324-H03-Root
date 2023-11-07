@@ -2,7 +2,7 @@ package h03.robots;
 
 import fopbot.RobotFamily;
 
-public class ChessBoardRobot extends MultiRobot {
+public class ChessBoardRobot extends MultiFamilyRobot {
 
     public ChessBoardRobot(int x, int y, RobotFamily even, RobotFamily odd) {
         super(x, y, (x + y) % 2 == 0 ? new RobotFamily[]{even, odd} : new RobotFamily[]{odd, even});

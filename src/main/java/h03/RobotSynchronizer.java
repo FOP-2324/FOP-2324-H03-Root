@@ -38,18 +38,27 @@ public class RobotSynchronizer {
             int goalX = this.x != -1 ? this.x : r.getX();
             int goalY = this.y != -1 ? this.y : r.getY();
             Direction goalDir = this.direction != null ? this.direction : r.getDirection();
-            while (true) {
-                while (
-                    r.getDirection() == UP && r.getY() < goalY ||
-                        r.getDirection() == RIGHT && r.getX() < goalX ||
-                        r.getDirection() == DOWN && r.getY() > goalY ||
-                        r.getDirection() == LEFT && r.getX() > goalX
-                ) {
-                    r.move();
-                }
-                if (goalDir == r.getDirection() && r.getX() == goalX && r.getY() == goalY) break;
-                r.turnLeft();
+
+            Direction xDir = r.getX() == goalX ? r.getDirection() : (r.getX() < goalX ? RIGHT : LEFT);
+            Direction yDir = r.getY() == goalY ? r.getDirection() : (r.getY() < goalY ? UP : DOWN);
+
+            final int nDirs = Direction.values().length;
+            int turnsToX = Math.floorMod(r.getDirection().ordinal() - xDir.ordinal(), nDirs);
+            int turnsToY = Math.floorMod(r.getDirection().ordinal() - yDir.ordinal(), nDirs);
+
+            boolean xBeforeY = turnsToX < turnsToY;
+            if (xBeforeY) {
+                while (r.getDirection() != xDir) r.turnLeft();
+                while (r.getX() != goalX) r.move();
             }
+            while (r.getDirection() != yDir) r.turnLeft();
+            while (r.getY() != goalY) r.move();
+            if (!xBeforeY) {
+                while (r.getDirection() != xDir) r.turnLeft();
+                while (r.getX() != goalX) r.move();
+            }
+
+            while (r.getDirection() != goalDir) r.turnLeft();
         }
     }
 

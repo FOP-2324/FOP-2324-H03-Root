@@ -1,6 +1,7 @@
 package h03;
 
 import fopbot.Direction;
+import static fopbot.Direction.*;
 import fopbot.Robot;
 import fopbot.World;
 
@@ -33,18 +34,21 @@ public class RobotSynchronizer {
     }
 
     public void sync() {
-        for (Robot robot : robots) {
-            Direction direction = this.direction != null ? this.direction : robot.getDirection();
-            while (robot.getX() != x || robot.getY() != y || robot.getDirection() != direction) {
+        for (Robot r : robots) {
+            int goalX = this.x != -1 ? this.x : r.getX();
+            int goalY = this.y != -1 ? this.y : r.getY();
+            Direction goalDir = this.direction != null ? this.direction : r.getDirection();
+            while (true) {
                 while (
-                    y != -1 && robot.getDirection() == Direction.UP && y > robot.getY() ||
-                        x != -1 && robot.getDirection() == Direction.RIGHT && x > robot.getX() ||
-                        y != -1 && robot.getDirection() == Direction.DOWN && y < robot.getY() ||
-                        x != -1 && robot.getDirection() == Direction.LEFT && x < robot.getX()
+                    r.getDirection() == UP && r.getY() < goalY ||
+                        r.getDirection() == RIGHT && r.getX() < goalX ||
+                        r.getDirection() == DOWN && r.getY() > goalY ||
+                        r.getDirection() == LEFT && r.getX() > goalX
                 ) {
-                    robot.move();
+                    r.move();
                 }
-                robot.turnLeft();
+                if (goalDir == r.getDirection() && r.getX() == goalX && r.getY() == goalY) break;
+                r.turnLeft();
             }
         }
     }

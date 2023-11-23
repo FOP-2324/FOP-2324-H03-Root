@@ -17,18 +17,16 @@ jagr {
         }
     }
     graders {
-        val graderPublic by creating {
-            graderName.set("H03-Public")
+        val graderPrivate by creating {
+            graderName.set("H03-Private")
             rubricProviderName.set("h03.H03_RubricProvider")
             configureDependencies {
+                implementation(libs.annotations)
                 implementation(libs.algoutils.tutor)
+                implementation(libs.fopbot)
+                implementation(libs.mockito.core)
                 implementation("org.junit-pioneer:junit-pioneer:1.9.0")
-//                implementation("com.fasterxml.jackson.core:jackson-databind:2.16.0")
             }
-        }
-        val graderPrivate by creating {
-            parent(graderPublic)
-            graderName.set("H03-Private")
         }
     }
 }

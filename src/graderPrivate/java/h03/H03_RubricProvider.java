@@ -9,13 +9,17 @@ import h03.robots.Robots_Student.ChessBoardRobot_Student.ChessBoardRobot_Paramet
 import h03.robots.TutorRobot.RobotCounters;
 import org.sourcegrade.jagr.api.rubric.*;
 
+import java.util.stream.Stream;
+
+import static org.sourcegrade.jagr.api.rubric.Grader.testAwareBuilder;
+import static org.tudalgo.algoutils.tutor.general.stringify.HTML.it;
 import static org.tudalgo.algoutils.tutor.general.stringify.HTML.tt;
 
 public class H03_RubricProvider implements RubricProvider {
 
     public static final Criterion H1_1_1 = Criterion.builder()
         .shortDescription("Die Klasse %s ist korrekt deklariert.".formatted(tt("MultiFamilyRobot")))
-        .grader(Grader.testAwareBuilder()
+        .grader(testAwareBuilder()
             .requirePass(JUnitTestRef.ofMethod(() -> h03.H1_1.class.getMethod("testParentClass")))
             .requirePass(JUnitTestRef.ofMethod(() -> h03.H1_1.class.getMethod("testModifiers")))
             .pointsPassedMax()
@@ -31,7 +35,7 @@ public class H03_RubricProvider implements RubricProvider {
 
     public static final Criterion H1_2_1 = Criterion.builder()
         .shortDescription("Der Konstruktor der Klasse %s ist korrekt deklariert.".formatted(tt("MultiFamilyRobot")))
-        .grader(Grader.testAwareBuilder()
+        .grader(testAwareBuilder()
             .requirePass(JUnitTestRef.ofMethod(() -> h03.H1_2.class.getMethod("testConstructorExistence")))
             .requirePass(JUnitTestRef.ofMethod(() -> h03.H1_2.class.getMethod("testConstructorModifiers")))
             .pointsPassedMax()
@@ -40,7 +44,7 @@ public class H03_RubricProvider implements RubricProvider {
 
     public static final Criterion H1_2_2 = Criterion.builder()
         .shortDescription("Der Konstruktor der Klasse %s ruft den Konstruktor der Basisklasse korrekt auf.".formatted("MultiFamilyRobot", "Robot"))
-        .grader(Grader.testAwareBuilder()
+        .grader(testAwareBuilder()
             .requirePass(JUnitTestRef.ofMethod(() -> h03.H1_2.class.getMethod(
                 "testInitialization1",
                 Robots_Student.MultiFamilyRobot_Student.MultiFamilyRobot_Parameters.class,
@@ -52,7 +56,7 @@ public class H03_RubricProvider implements RubricProvider {
     public static final Criterion H1_2_3 = Criterion.builder()
         .shortDescription("Die Konstante %s ist korrekt deklariert.".formatted("families"))
         .grader(
-            Grader.testAwareBuilder()
+            testAwareBuilder()
                 .requirePass(JUnitTestRef.ofMethod(() -> h03.H1_2.class.getMethod("testConstantExistence")))
                 .pointsPassedMax()
                 .build()
@@ -61,7 +65,7 @@ public class H03_RubricProvider implements RubricProvider {
     public static final Criterion H1_2_4 = Criterion.builder()
         .shortDescription("Die Konstante %s wird korrekt initialisiert.".formatted(tt("families")))
         .grader(
-            Grader.testAwareBuilder()
+            testAwareBuilder()
                 .requirePass(JUnitTestRef.ofMethod(() -> h03.H1_2.class.getMethod(
                     "testInitialization2",
                     Robots_Student.MultiFamilyRobot_Student.MultiFamilyRobot_Parameters.class
@@ -82,7 +86,7 @@ public class H03_RubricProvider implements RubricProvider {
 
     public static final Criterion H1_3_1 = Criterion.builder()
         .shortDescription("Die Methode %s ist korrekt deklariert.".formatted(tt("exchange")))
-        .grader(Grader.testAwareBuilder()
+        .grader(testAwareBuilder()
             .requirePass(JUnitTestRef.ofMethod(() -> h03.H1_3.class.getMethod("testMethodReturnType")))
             .requirePass(JUnitTestRef.ofMethod(() -> h03.H1_3.class.getMethod("testMethodModifiers")))
             .pointsPassedMax()
@@ -91,7 +95,7 @@ public class H03_RubricProvider implements RubricProvider {
 
     public static final Criterion H1_3_2 = Criterion.builder()
         .shortDescription("Die Methode %s funktioniert korrekt, wenn der letzte Index nicht überschritten wird.".formatted(tt("exchange")))
-        .grader(Grader.testAwareBuilder()
+        .grader(testAwareBuilder()
             .requirePass(JUnitTestRef.ofMethod(() -> h03.H1_3.class.getMethod(
                 "testMoveN_1",
                 Robots_Student.MultiFamilyRobot_Student.MultiFamilyRobot_Parameters.class,
@@ -104,7 +108,7 @@ public class H03_RubricProvider implements RubricProvider {
 
     public static final Criterion H1_3_3 = Criterion.builder()
         .shortDescription("Die Methode %s funktioniert auch korrekt, wenn der letzte Index überschritten wird.".formatted(tt("exchange")))
-        .grader(Grader.testAwareBuilder()
+        .grader(testAwareBuilder()
             .requirePass(JUnitTestRef.ofMethod(() -> h03.H1_3.class.getMethod(
                 "testMoveMore",
                 Robots_Student.MultiFamilyRobot_Student.MultiFamilyRobot_Parameters.class,
@@ -124,7 +128,7 @@ public class H03_RubricProvider implements RubricProvider {
 
     public static final Criterion H1_4_1 = Criterion.builder()
         .shortDescription("Die Methode %s ist korrekt deklariert.".formatted(tt("move")))
-        .grader(Grader.testAwareBuilder()
+        .grader(testAwareBuilder()
             .requirePass(JUnitTestRef.ofMethod(() -> h03.H1_4.class.getMethod("testMethodReturnType")))
             .requirePass(JUnitTestRef.ofMethod(() -> h03.H1_4.class.getMethod("testMethodModifiers")))
             .pointsPassedMax()
@@ -133,7 +137,7 @@ public class H03_RubricProvider implements RubricProvider {
 
     public static final Criterion H1_4_2 = Criterion.builder()
         .shortDescription("Die Methode %s der Basisklasse wird korrekt aufgerufen.".formatted(tt("move")))
-        .grader(Grader.testAwareBuilder()
+        .grader(testAwareBuilder()
             .requirePass(JUnitTestRef.ofMethod(() -> h03.H1_4.class.getMethod("testSuperCall")))
             .pointsPassedMax()
             .build())
@@ -141,7 +145,7 @@ public class H03_RubricProvider implements RubricProvider {
 
     public static final Criterion H1_4_3 = Criterion.builder()
         .shortDescription("Die Methode %s wird korrekt aufgerufen.".formatted(tt("exchange")))
-        .grader(Grader.testAwareBuilder()
+        .grader(testAwareBuilder()
             .requirePass(JUnitTestRef.ofMethod(() -> h03.H1_4.class.getMethod("testExchangeCall")))
             .pointsPassedMax()
             .build())
@@ -158,7 +162,7 @@ public class H03_RubricProvider implements RubricProvider {
 
     public static final Criterion H1_5_1 = Criterion.builder()
         .shortDescription("Die Methode ist korrekt deklariert.")
-        .grader(Grader.testAwareBuilder()
+        .grader(testAwareBuilder()
             .requirePass(JUnitTestRef.ofMethod(() -> h03.H1_5.class.getMethod("testMethodReturnType")))
             .requirePass(JUnitTestRef.ofMethod(() -> h03.H1_5.class.getMethod("testMethodModifiers")))
             .pointsPassedMax()
@@ -167,7 +171,7 @@ public class H03_RubricProvider implements RubricProvider {
 
     public static final Criterion H1_5_2 = Criterion.builder()
         .shortDescription("Die Methode %s der Basisklasse wird korrekt aufgerufen.".formatted(tt("move")))
-        .grader(Grader.testAwareBuilder()
+        .grader(testAwareBuilder()
             .requirePass(JUnitTestRef.ofMethod(() -> h03.H1_5.class.getMethod("testSuperCall")))
             .pointsPassedMax()
             .build()
@@ -176,7 +180,7 @@ public class H03_RubricProvider implements RubricProvider {
 
     public static final Criterion H1_5_3 = Criterion.builder()
         .shortDescription("Die Methode %s wird korrekt aufgerufen.".formatted(tt("exchange")))
-        .grader(Grader.testAwareBuilder()
+        .grader(testAwareBuilder()
             .requirePass(JUnitTestRef.ofMethod(() -> h03.H1_5.class.getMethod("testExchangeCall", boolean.class)))
             .pointsPassedMax()
             .build()
@@ -201,7 +205,7 @@ public class H03_RubricProvider implements RubricProvider {
 
     public static final Criterion H2_1_1 = Criterion.builder()
         .shortDescription("Die Klasse %s ist korrekt deklariert.".formatted(tt("RGBRobot")))
-        .grader(Grader.testAwareBuilder()
+        .grader(testAwareBuilder()
             .requirePass(JUnitTestRef.ofMethod(() -> h03.H2_1.class.getMethod("testParentClass")))
             .requirePass(JUnitTestRef.ofMethod(() -> h03.H2_1.class.getMethod("testModifiers")))
             .pointsPassedMax()
@@ -211,7 +215,7 @@ public class H03_RubricProvider implements RubricProvider {
 
     public static final Criterion H2_1_2 = Criterion.builder()
         .shortDescription("Der Konstruktor der Klasse %s ist korrekt deklariert.".formatted(tt("RGBRobot")))
-        .grader(Grader.testAwareBuilder()
+        .grader(testAwareBuilder()
             .requirePass(JUnitTestRef.ofMethod(() -> h03.H2_1.class.getMethod("testConstructorModifiers")))
             .pointsPassedMax()
             .build()
@@ -220,7 +224,7 @@ public class H03_RubricProvider implements RubricProvider {
 
     public static final Criterion H2_1_3 = Criterion.builder()
         .shortDescription("Der Konstruktor der Klasse %s ist korrekt implementiert.".formatted(tt("RGBRobot")))
-        .grader(Grader.testAwareBuilder()
+        .grader(testAwareBuilder()
             .requirePass(JUnitTestRef.ofMethod(() -> h03.H2_1.class.getMethod("testConstructor", boolean.class)))
             .pointsPassedMax()
             .build()
@@ -229,7 +233,7 @@ public class H03_RubricProvider implements RubricProvider {
 
     public static final Criterion H2_1_4 = Criterion.builder()
         .shortDescription("Die Methode %s ist korrekt deklariert.".formatted(tt("testRGB")))
-        .grader(Grader.testAwareBuilder()
+        .grader(testAwareBuilder()
             .requirePass(JUnitTestRef.ofMethod(() -> h03.H2_1.class.getMethod("testTestRGBReturnType")))
             .requirePass(JUnitTestRef.ofMethod(() -> h03.H2_1.class.getMethod("testTestRGBModifiers")))
             .pointsPassedMax()
@@ -239,7 +243,7 @@ public class H03_RubricProvider implements RubricProvider {
 
     public static final Criterion H2_1_5 = Criterion.builder()
         .shortDescription("Die Methode %s ist korrekt implementiert.".formatted(tt("testRGB")))
-        .grader(Grader.testAwareBuilder()
+        .grader(testAwareBuilder()
             .requirePass(JUnitTestRef.ofMethod(() -> h03.H2_1.class.getMethod("testTestRGBImplementation")))
             .pointsPassedMax()
             .build()
@@ -259,7 +263,7 @@ public class H03_RubricProvider implements RubricProvider {
 
     public static final Criterion H2_2_1 = Criterion.builder()
         .shortDescription("Die Klasse %s ist korrekt deklariert.".formatted(tt("ChessBoardRobot")))
-        .grader(Grader.testAwareBuilder()
+        .grader(testAwareBuilder()
             .requirePass(JUnitTestRef.ofMethod(() -> h03.H2_2.class.getMethod("testClassParentClass")))
             .requirePass(JUnitTestRef.ofMethod(() -> h03.H2_2.class.getMethod("testClassModifiers")))
             .pointsPassedMax()
@@ -268,7 +272,7 @@ public class H03_RubricProvider implements RubricProvider {
 
     public static final Criterion H2_2_2 = Criterion.builder()
         .shortDescription("Die erste Konstruktor der Klasse %s ist korrekt deklariert.".formatted(tt("ChessBoardRobot")))
-        .grader(Grader.testAwareBuilder()
+        .grader(testAwareBuilder()
             .requirePass(JUnitTestRef.ofMethod(() -> h03.H2_2.class.getMethod("testConstructor1Modifiers")))
             .pointsPassedMax()
             .build()
@@ -276,7 +280,7 @@ public class H03_RubricProvider implements RubricProvider {
 
     public static final Criterion H2_2_3 = Criterion.builder()
         .shortDescription("Die erste Konstruktor der Klasse %s ist korrekt implementiert.".formatted(tt("ChessBoardRobot")))
-        .grader(Grader.testAwareBuilder()
+        .grader(testAwareBuilder()
             .requirePass(JUnitTestRef.ofMethod(() -> h03.H2_2.class.getMethod("testConstructor1Implementation", ChessBoardRobot_Parameters_1.class, RobotFamily[].class)))
             .pointsPassedMax()
             .build()
@@ -284,7 +288,7 @@ public class H03_RubricProvider implements RubricProvider {
 
     public static final Criterion H2_2_4 = Criterion.builder()
         .shortDescription("Die zweite Konstruktor der Klasse %s ist korrekt deklariert.".formatted(tt("ChessBoardRobot")))
-        .grader(Grader.testAwareBuilder()
+        .grader(testAwareBuilder()
             .requirePass(JUnitTestRef.ofMethod(() -> h03.H2_2.class.getMethod("testConstructor2Modifiers")))
             .pointsPassedMax()
             .build()
@@ -292,7 +296,7 @@ public class H03_RubricProvider implements RubricProvider {
 
     public static final Criterion H2_2_5 = Criterion.builder()
         .shortDescription("Die zweite Konstruktor der Klasse %s ist korrekt implementiert.".formatted(tt("ChessBoardRobot")))
-        .grader(Grader.testAwareBuilder()
+        .grader(testAwareBuilder()
             .requirePass(JUnitTestRef.ofMethod(() -> h03.H2_2.class.getMethod("testConstructor2Implementation", ChessBoardRobot_Parameters_2.class, RobotFamily[].class)))
             .pointsPassedMax()
             .build()
@@ -317,7 +321,7 @@ public class H03_RubricProvider implements RubricProvider {
 
     public static final Criterion H3_1_1 = Criterion.builder()
         .shortDescription("Die Klasse %s ist korrekt deklariert.".formatted(tt("RobotSynchronizer")))
-        .grader(Grader.testAwareBuilder()
+        .grader(testAwareBuilder()
             .requirePass(JUnitTestRef.ofMethod(() -> h03.H3_1.class.getMethod("testClassParentClass")))
             .requirePass(JUnitTestRef.ofMethod(() -> h03.H3_1.class.getMethod("testClassModifiers")))
             .pointsPassedMax()
@@ -332,7 +336,7 @@ public class H03_RubricProvider implements RubricProvider {
 
     public static final Criterion H3_2_1 = Criterion.builder()
         .shortDescription("Der Konstruktor der Klasse %s ist korrekt deklariert.".formatted(tt("RobotSynchronizer")))
-        .grader(Grader.testAwareBuilder()
+        .grader(testAwareBuilder()
             .requirePass(JUnitTestRef.ofMethod(() -> h03.H3_2.class.getMethod("testConstructorModifiers")))
             .pointsPassedMax()
             .build())
@@ -340,7 +344,7 @@ public class H03_RubricProvider implements RubricProvider {
 
     public static final Criterion H3_2_2 = Criterion.builder()
         .shortDescription("Der Konstruktor der Klasse %s ist korrekt implementiert.".formatted(tt("RobotSynchronizer")))
-        .grader(Grader.testAwareBuilder()
+        .grader(testAwareBuilder()
             .requirePass(JUnitTestRef.ofMethod(() -> h03.H3_2.class.getMethod("testConstructorImplementation")))
             .pointsPassedMax()
             .build()
@@ -354,7 +358,7 @@ public class H03_RubricProvider implements RubricProvider {
 
     public static final Criterion H3_3_1 = Criterion.builder()
         .shortDescription("Die Attribute %s und Methoden %s sind korrekt deklariert.".formatted(tt("x,y,direction"), tt("set{X,Y,Direction}")))
-        .grader(Grader.testAwareBuilder()
+        .grader(testAwareBuilder()
             .requirePass(JUnitTestRef.ofMethod(() -> h03.H3_3.class.getMethod("testMethodModifiers", int.class)))
             .requirePass(JUnitTestRef.ofMethod(() -> h03.H3_3.class.getMethod("testAttributeModifiers", int.class)))
             .pointsPassedMax()
@@ -364,7 +368,8 @@ public class H03_RubricProvider implements RubricProvider {
 
     public static final Criterion H3_3_2 = Criterion.builder()
         .shortDescription("Die Methoden %s sind korrekt implementiert.".formatted("set{X,Y,Direction}"))
-        .grader(Grader.testAwareBuilder()
+        .grader(testAwareBuilder()
+            .requirePass(JUnitTestRef.ofMethod(() -> h03.H3_3.class.getMethod("testImplementation", RobotState[].class, RobotSynchronizerState.class, RobotSynchronizerState.class)))
             .pointsPassedMax()
             .build()
         )
@@ -377,7 +382,7 @@ public class H03_RubricProvider implements RubricProvider {
 
     public static final Criterion H3_4_1 = Criterion.builder()
         .shortDescription("Die Methode %s ist korrekt deklariert.".formatted(tt("sync")))
-        .grader(Grader.testAwareBuilder()
+        .grader(testAwareBuilder()
             .requirePass(JUnitTestRef.ofMethod(() -> h03.H3_4.class.getMethod("testMethodModifiers")))
             .pointsPassedMax()
             .build()
@@ -386,7 +391,7 @@ public class H03_RubricProvider implements RubricProvider {
 
     public static final Criterion H3_4_2 = Criterion.builder()
         .shortDescription("Die Roboter erreichen den festgelegten Zustand.")
-        .grader(Grader.testAwareBuilder()
+        .grader(testAwareBuilder()
             .requirePass(JUnitTestRef.ofMethod(() -> h03.H3_4.class.getMethod("testTarget", RobotState[].class, RobotSynchronizerState.class, RobotState[].class)))
             .pointsPassedMax()
             .build()
@@ -395,7 +400,7 @@ public class H03_RubricProvider implements RubricProvider {
 
     public static final Criterion H3_4_3 = Criterion.builder()
         .shortDescription("Die Anzahl an Bewegungen und Drehungen ist minimal.")
-        .grader(Grader.testAwareBuilder()
+        .grader(testAwareBuilder()
             .requirePass(JUnitTestRef.ofMethod(() -> h03.H3_4.class.getMethod("testRobotCounters", RobotState[].class, RobotSynchronizerState.class, RobotCounters[].class)))
             .pointsPassedMax()
             .build()
@@ -415,12 +420,41 @@ public class H03_RubricProvider implements RubricProvider {
         .addChildCriteria(H3_4)
         .build();
 
+
+    private static final Criterion[] N = Stream.generate(
+        () -> Criterion.builder().minPoints(-1).maxPoints(1).shortDescription("").build()
+    ).limit(3).toArray(Criterion[]::new);
+
+    public static final Criterion IDENTIFICER_CHECK = Criterion.builder()
+        .shortDescription("Alle Identifier sind korrekt.")
+        .minPoints(-3)
+        .maxPoints(0)
+        .grader((tc, c) -> {
+            int d = -Global.MISSPELLING_COUNTER;
+            return GradeResult.of(d, d, Global.misspellings());
+        })
+        .build();
+
+    public static final Criterion DOCUMENTATION_CHECK = Criterion.builder()
+        .shortDescription("Alle Elemente sind korrekt dokumentiert.")
+        .minPoints(-3)
+        .maxPoints(0)
+        .grader((tc, c) -> GradeResult.of(0, 0, it("Pending.")))
+        .build();
+
+    public static final Criterion GLOBAL = Criterion.builder()
+        .shortDescription("Global")
+        .addChildCriteria(IDENTIFICER_CHECK)
+        .addChildCriteria(DOCUMENTATION_CHECK)
+        .build();
+
     public static final Rubric RUBRIC = Rubric.builder()
         .title("H03 | Multi Family & Synchronizers")
         .addChildCriteria(
             H1,
             H2,
-            H3
+            H3,
+            GLOBAL
         )
         .build();
 

@@ -2,10 +2,11 @@ package h03.robots;
 
 import fopbot.Robot;
 import fopbot.RobotFamily;
+import h03.CombinedPackageLink;
+import h03.Global;
 import h03.Utils;
 import org.tudalgo.algoutils.tutor.general.assertions.Assertions2;
 import org.tudalgo.algoutils.tutor.general.assertions.Context;
-import org.tudalgo.algoutils.tutor.general.match.BasicReflectionMatchers;
 import org.tudalgo.algoutils.tutor.general.reflections.*;
 
 import static h03.Utils.mockX;
@@ -16,12 +17,16 @@ import static org.tudalgo.algoutils.tutor.general.Messages.UNEXPECTED_EXCEPTION;
 import static org.tudalgo.algoutils.tutor.general.assertions.Assertions2.context;
 import static org.tudalgo.algoutils.tutor.general.assertions.Assertions2.contextBuilder;
 import static org.tudalgo.algoutils.tutor.general.assertions.Assertions3.*;
+import static org.tudalgo.algoutils.tutor.general.match.BasicReflectionMatchers.sameType;
 import static org.tudalgo.algoutils.tutor.general.match.BasicReflectionMatchers.sameTypes;
 
 public class Robots_Student {
 
     public static final Late<PackageLink> ROBOTS_LINK = Late.of(
-        () -> BasicPackageLink.of("h03.robots")
+        () -> new CombinedPackageLink(
+            BasicPackageLink.of("h03"),
+            BasicPackageLink.of("h03.robots")
+        )
     );
 
     private Robots_Student() {
@@ -46,28 +51,28 @@ public class Robots_Student {
         public static final Late<BasicFieldLink> MULTI_FAMILY_ROBOT_FAMILIES_LINK = Late.of(
             () -> (BasicFieldLink) assertFieldExists(
                 MULTI_FAMILY_ROBOT_LINK.get(),
-                BasicReflectionMatchers.<FieldLink>sameType(ROBOT_FAMILY_ARRAY_LINK).and(matcher("families"))
+                Global.<FieldLink>matcher("families").and(sameType(ROBOT_FAMILY_ARRAY_LINK))
             )
         );
 
         public static final Late<BasicMethodLink> MULTI_FAMILY_ROBOT_EXCHANGE_LINK = Late.of(
             () -> (BasicMethodLink) assertMethodExists(
                 MULTI_FAMILY_ROBOT_LINK.get(),
-                BasicReflectionMatchers.<MethodLink>sameTypes().and(matcher("exchange"))
+                Global.<MethodLink>matcher("exchange").and(sameTypes())
             )
         );
 
         public static final Late<BasicMethodLink> MULTI_FAMILY_ROBOT_MOVE_WITHOUT_PARAMETER_L = Late.of(
             () -> (BasicMethodLink) assertMethodExists(
                 MULTI_FAMILY_ROBOT_LINK.get(),
-                BasicReflectionMatchers.<MethodLink>sameTypes().and(matcher("move"))
+                Global.<MethodLink>matcher("move").and(sameTypes())
             )
         );
 
         public static final Late<BasicMethodLink> MULTI_FAMILY_ROBOT_MOVE_WITH_PARAMETER_L = Late.of(
             () -> (BasicMethodLink) assertMethodExists(
                 MULTI_FAMILY_ROBOT_LINK.get(),
-                BasicReflectionMatchers.<MethodLink>sameTypes(BOOLEAN_LINK).and(matcher("move"))
+                Global.<MethodLink>matcher("move").and(sameTypes(BOOLEAN_LINK))
             )
         );
 
@@ -173,7 +178,7 @@ public class Robots_Student {
         public static final Late<BasicMethodLink> RGB_ROBOT_TEST_RGB_LINK = Late.of(
             () -> (BasicMethodLink) assertMethodExists(
                 RGB_ROBOT_LINK.get(),
-                BasicReflectionMatchers.<MethodLink>sameTypes().and(matcher("testRGB"))
+                Global.<MethodLink>matcher("testRGB").and(sameTypes())
             )
         );
 

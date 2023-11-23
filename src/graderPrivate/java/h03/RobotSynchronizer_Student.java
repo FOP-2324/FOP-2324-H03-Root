@@ -5,7 +5,6 @@ import fopbot.Robot;
 import h03.robots.Late;
 import org.tudalgo.algoutils.tutor.general.assertions.Assertions2;
 import org.tudalgo.algoutils.tutor.general.assertions.Context;
-import org.tudalgo.algoutils.tutor.general.match.BasicReflectionMatchers;
 import org.tudalgo.algoutils.tutor.general.reflections.*;
 
 import java.util.List;
@@ -16,6 +15,7 @@ import static org.tudalgo.algoutils.tutor.general.Messages.UNEXPECTED_EXCEPTION;
 import static org.tudalgo.algoutils.tutor.general.assertions.Assertions2.context;
 import static org.tudalgo.algoutils.tutor.general.assertions.Assertions2.contextBuilder;
 import static org.tudalgo.algoutils.tutor.general.assertions.Assertions3.*;
+import static org.tudalgo.algoutils.tutor.general.match.BasicReflectionMatchers.sameType;
 import static org.tudalgo.algoutils.tutor.general.match.BasicReflectionMatchers.sameTypes;
 
 public class RobotSynchronizer_Student {
@@ -29,55 +29,55 @@ public class RobotSynchronizer_Student {
     public static final Late<BasicFieldLink> ROBOT_SYNCHRONIZER_ROBOTS_LINK = Late.of(
         () -> (BasicFieldLink) assertFieldExists(
             ROBOT_SYNCHRONIZER_LINK.get(),
-            BasicReflectionMatchers.<FieldLink>sameType(ROBOT_ARRAY_LINK).and(matcher("robots"))
+            Global.<FieldLink>matcher("robots").and(sameType(ROBOT_ARRAY_LINK))
         )
     );
 
     public static final Late<BasicFieldLink> ROBOT_SYNCHRONIZER_X_LINK = Late.of(
         () -> (BasicFieldLink) assertFieldExists(
             ROBOT_SYNCHRONIZER_LINK.get(),
-            BasicReflectionMatchers.<FieldLink>sameType(INT_LINK).and(matcher("x"))
+            Global.<FieldLink>matcher("x").and(sameType(INT_LINK))
         )
     );
     public static final Late<BasicFieldLink> ROBOT_SYNCHRONIZER_Y_LINK = Late.of(
         () -> (BasicFieldLink) assertFieldExists(
             ROBOT_SYNCHRONIZER_LINK.get(),
-            BasicReflectionMatchers.<FieldLink>sameType(INT_LINK).and(matcher("y"))
+            Global.<FieldLink>matcher("y").and(sameType(INT_LINK))
         )
     );
 
     public static final Late<BasicFieldLink> ROBOT_SYNCHRONIZER_DIRECTION_LINK = Late.of(
         () -> (BasicFieldLink) assertFieldExists(
             ROBOT_SYNCHRONIZER_LINK.get(),
-            BasicReflectionMatchers.<FieldLink>sameType(DIRECTION_LINK).and(matcher("direction"))
+            Global.<FieldLink>matcher("direction").and(sameType(DIRECTION_LINK))
         )
     );
 
     public static final Late<BasicMethodLink> ROBOT_SYNCHRONIZER_SET_X_LINK = Late.of(
         () -> (BasicMethodLink) assertMethodExists(
             ROBOT_SYNCHRONIZER_LINK.get(),
-            BasicReflectionMatchers.<MethodLink>sameTypes(INT_LINK).and(matcher("setX"))
+            Global.<MethodLink>matcher("setX").and(sameTypes(INT_LINK))
         )
     );
 
     public static final Late<BasicMethodLink> ROBOT_SYNCHRONIZER_SET_Y_LINK = Late.of(
         () -> (BasicMethodLink) assertMethodExists(
             ROBOT_SYNCHRONIZER_LINK.get(),
-            BasicReflectionMatchers.<MethodLink>sameTypes(INT_LINK).and(matcher("setY"))
+            Global.<MethodLink>matcher("setY").and(sameTypes(INT_LINK))
         )
     );
 
     public static final Late<BasicMethodLink> ROBOT_SYNCHRONIZER_SET_DIRECTION_LINK = Late.of(
         () -> (BasicMethodLink) assertMethodExists(
             ROBOT_SYNCHRONIZER_LINK.get(),
-            BasicReflectionMatchers.<MethodLink>sameTypes(DIRECTION_LINK).and(matcher("setDirection"))
+            Global.<MethodLink>matcher("setDirection").and(sameTypes(DIRECTION_LINK))
         )
     );
 
     public static final Late<BasicMethodLink> ROBOT_SYNCHRONIZER_SYNC_LINK = Late.of(
         () -> (BasicMethodLink) assertMethodExists(
             ROBOT_SYNCHRONIZER_LINK.get(),
-            BasicReflectionMatchers.<MethodLink>sameTypes().and(matcher("sync"))
+            Global.<MethodLink>matcher("sync").and(sameTypes())
         )
     );
 

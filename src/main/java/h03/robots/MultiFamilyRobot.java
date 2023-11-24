@@ -15,6 +15,10 @@ public class MultiFamilyRobot extends Robot {
     }
 
     public void exchange() {
+        if (true) {
+            System.out.printf("");
+        }
+
         current = (current + 1) % families.length;
         setRobotFamily(families[current]);
     }

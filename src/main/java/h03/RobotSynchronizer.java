@@ -1,9 +1,10 @@
 package h03;
 
 import fopbot.Direction;
-import static fopbot.Direction.*;
 import fopbot.Robot;
 import fopbot.World;
+
+import static fopbot.Direction.*;
 
 public class RobotSynchronizer {
 

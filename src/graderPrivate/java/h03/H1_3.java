@@ -1,6 +1,7 @@
 package h03;
 
 import fopbot.World;
+import h03.robots.Late;
 import h03.robots.Robots_Student;
 import h03.robots.Robots_Student.MultiFamilyRobot_Student.MultiFamilyRobot_Parameters;
 import h03.robots.Robots_Student.MultiFamilyRobot_Student.MultiFamilyRobot_State;
@@ -10,6 +11,7 @@ import org.junit.jupiter.params.ParameterizedTest;
 import org.junitpioneer.jupiter.json.JsonClasspathSource;
 import org.junitpioneer.jupiter.json.Property;
 import org.sourcegrade.jagr.api.rubric.TestForSubmission;
+import org.tudalgo.algoutils.tutor.general.assertions.Assertions4;
 
 import static h03.Global.VOID_LINK;
 import static h03.robots.Robots_Student.MultiFamilyRobot_Student.MULTI_FAMILY_ROBOT_EXCHANGE_LINK;
@@ -41,23 +43,25 @@ public class H1_3 {
 
     @ParameterizedTest
     @JsonClasspathSource("h03/H1_3_1.json")
-    public void testMoveN_1(
+    public void testExchangeN_1(
         @Property("parameters") MultiFamilyRobot_Parameters parameters,
         @Property("expected") MultiFamilyRobot_State[] expected
     ) {
-        testMove(parameters, expected);
+        VA_CHECK.get();
+        testExchange(parameters, expected);
     }
 
     @ParameterizedTest
     @JsonClasspathSource("h03/H1_3_2.json")
-    public void testMoveMore(
+    public void testExchangeMore(
         @Property("parameters") MultiFamilyRobot_Parameters parameters,
         @Property("expected") MultiFamilyRobot_State[] expected
     ) {
-        testMove(parameters, expected);
+        VA_CHECK.get();
+        testExchange(parameters, expected);
     }
 
-    public void testMove(
+    public void testExchange(
         MultiFamilyRobot_Parameters parameters,
         MultiFamilyRobot_State[] expected
     ) {
@@ -77,4 +81,11 @@ public class H1_3 {
         }
     }
 
+    public static Late<?> VA_CHECK = Late.of(() -> {
+        Assertions4.assertNotConditional(
+            MULTI_FAMILY_ROBOT_EXCHANGE_LINK.get().getCtElement(),
+            emptyContext()
+        );
+        return null;
+    });
 }

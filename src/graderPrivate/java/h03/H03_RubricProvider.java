@@ -97,7 +97,7 @@ public class H03_RubricProvider implements RubricProvider {
         .shortDescription("Die Methode %s funktioniert korrekt, wenn der letzte Index nicht überschritten wird.".formatted(tt("exchange")))
         .grader(testAwareBuilder()
             .requirePass(JUnitTestRef.ofMethod(() -> h03.H1_3.class.getMethod(
-                "testMoveN_1",
+                "testExchangeN_1",
                 Robots_Student.MultiFamilyRobot_Student.MultiFamilyRobot_Parameters.class,
                 Robots_Student.MultiFamilyRobot_Student.MultiFamilyRobot_State[].class
             )))
@@ -110,7 +110,7 @@ public class H03_RubricProvider implements RubricProvider {
         .shortDescription("Die Methode %s funktioniert auch korrekt, wenn der letzte Index überschritten wird.".formatted(tt("exchange")))
         .grader(testAwareBuilder()
             .requirePass(JUnitTestRef.ofMethod(() -> h03.H1_3.class.getMethod(
-                "testMoveMore",
+                "testExchangeMore",
                 Robots_Student.MultiFamilyRobot_Student.MultiFamilyRobot_Parameters.class,
                 Robots_Student.MultiFamilyRobot_Student.MultiFamilyRobot_State[].class
             )))

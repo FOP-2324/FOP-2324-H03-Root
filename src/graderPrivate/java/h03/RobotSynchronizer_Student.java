@@ -23,10 +23,12 @@ public class RobotSynchronizer_Student {
     public final Object object;
 
     public static final Late<BasicTypeLink> ROBOT_SYNCHRONIZER_LINK = Late.of(
+        "class RobotSynchronizer",
         () -> (BasicTypeLink) assertTypeExists(H03_LINK, matcher("RobotSynchronizer"))
     );
 
     public static final Late<BasicFieldLink> ROBOT_SYNCHRONIZER_ROBOTS_LINK = Late.of(
+        "field robots",
         () -> (BasicFieldLink) assertFieldExists(
             ROBOT_SYNCHRONIZER_LINK.get(),
             Global.<FieldLink>matcher("robots").and(sameType(ROBOT_ARRAY_LINK))
@@ -34,12 +36,14 @@ public class RobotSynchronizer_Student {
     );
 
     public static final Late<BasicFieldLink> ROBOT_SYNCHRONIZER_X_LINK = Late.of(
+        "field x",
         () -> (BasicFieldLink) assertFieldExists(
             ROBOT_SYNCHRONIZER_LINK.get(),
             Global.<FieldLink>matcher("x").and(sameType(INT_LINK))
         )
     );
     public static final Late<BasicFieldLink> ROBOT_SYNCHRONIZER_Y_LINK = Late.of(
+        "field y",
         () -> (BasicFieldLink) assertFieldExists(
             ROBOT_SYNCHRONIZER_LINK.get(),
             Global.<FieldLink>matcher("y").and(sameType(INT_LINK))
@@ -47,6 +51,7 @@ public class RobotSynchronizer_Student {
     );
 
     public static final Late<BasicFieldLink> ROBOT_SYNCHRONIZER_DIRECTION_LINK = Late.of(
+        "field direction",
         () -> (BasicFieldLink) assertFieldExists(
             ROBOT_SYNCHRONIZER_LINK.get(),
             Global.<FieldLink>matcher("direction").and(sameType(DIRECTION_LINK))
@@ -54,6 +59,7 @@ public class RobotSynchronizer_Student {
     );
 
     public static final Late<BasicMethodLink> ROBOT_SYNCHRONIZER_SET_X_LINK = Late.of(
+        "method setX(int)",
         () -> (BasicMethodLink) assertMethodExists(
             ROBOT_SYNCHRONIZER_LINK.get(),
             Global.<MethodLink>matcher("setX").and(sameTypes(INT_LINK))
@@ -61,6 +67,7 @@ public class RobotSynchronizer_Student {
     );
 
     public static final Late<BasicMethodLink> ROBOT_SYNCHRONIZER_SET_Y_LINK = Late.of(
+        "method setY(int)",
         () -> (BasicMethodLink) assertMethodExists(
             ROBOT_SYNCHRONIZER_LINK.get(),
             Global.<MethodLink>matcher("setY").and(sameTypes(INT_LINK))
@@ -68,6 +75,7 @@ public class RobotSynchronizer_Student {
     );
 
     public static final Late<BasicMethodLink> ROBOT_SYNCHRONIZER_SET_DIRECTION_LINK = Late.of(
+        "method setDirection(Direction)",
         () -> (BasicMethodLink) assertMethodExists(
             ROBOT_SYNCHRONIZER_LINK.get(),
             Global.<MethodLink>matcher("setDirection").and(sameTypes(DIRECTION_LINK))
@@ -75,6 +83,7 @@ public class RobotSynchronizer_Student {
     );
 
     public static final Late<BasicMethodLink> ROBOT_SYNCHRONIZER_SYNC_LINK = Late.of(
+        "method sync()",
         () -> (BasicMethodLink) assertMethodExists(
             ROBOT_SYNCHRONIZER_LINK.get(),
             Global.<MethodLink>matcher("sync").and(sameTypes())
@@ -82,6 +91,7 @@ public class RobotSynchronizer_Student {
     );
 
     public static final Late<BasicConstructorLink> ROBOT_SYNCHRONIZER_CONSTRUCTOR_LINK = Late.of(
+        "constructor RobotSynchronizer(Robot[])",
         () -> (BasicConstructorLink) assertConstructorExists(
             ROBOT_SYNCHRONIZER_LINK.get(),
             sameTypes(ROBOT_ARRAY_LINK)

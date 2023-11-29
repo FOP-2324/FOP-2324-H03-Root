@@ -18,12 +18,12 @@ public class Main {
      *
      * @param args program arguments, currently ignored
      */
-    public static void main(String[] args) {
+    public static void main(final String[] args) {
         // initialize world
         World.setSize(5, 5);
 
         // initialize robots
-        var robots = new Robot[]{
+        final var robots = new Robot[]{
             new MultiFamilyRobot(
                 0,
                 0,
@@ -41,7 +41,7 @@ public class Main {
         World.setVisible(true);
 
         // move robots
-        for (var robot : robots) {
+        for (final var robot : robots) {
             for (int i = 0; i < 4; i++) {
                 if (!robot.isFrontClear()) {
                     robot.turnLeft();
@@ -51,7 +51,7 @@ public class Main {
         }
 
         // now move robots with RobotSynchronizer
-        var rs = new RobotSynchronizer(robots);
+        final var rs = new RobotSynchronizer(robots);
         rs.setX(2);
         rs.setY(2);
         rs.setDirection(Direction.RIGHT);

@@ -30,7 +30,7 @@ public class TutorRobot extends Robot {
      * @param y         The y coordinate.
      * @param direction The direction.
      */
-    public TutorRobot(int x, int y, Direction direction) {
+    public TutorRobot(final int x, final int y, final Direction direction) {
         super(x, y, direction, 0);
     }
 

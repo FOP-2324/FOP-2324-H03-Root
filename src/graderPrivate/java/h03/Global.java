@@ -126,7 +126,7 @@ public class Global {
      * @param <T>    the type of the object to match
      * @return a {@link Matcher} for the given string
      */
-    public static <T extends Stringifiable> Matcher<T> matcher(String string) {
+    public static <T extends Stringifiable> Matcher<T> matcher(final String string) {
         return new Matcher<T>() {
 
             /**
@@ -140,7 +140,7 @@ public class Global {
             }
 
             @Override
-            public <ST extends T> Match<ST> match(ST object) {
+            public <ST extends T> Match<ST> match(final ST object) {
 
                 return new Match<>() {
 
@@ -170,13 +170,13 @@ public class Global {
                     }
 
                     @Override
-                    public int compareTo(Match<ST> other) {
+                    public int compareTo(final Match<ST> other) {
                         if (!other.matched()) {
                             return matched() ? 1 : 0;
                         } else if (!matched()) {
                             return -1;
                         }
-                        double otherSimilarity = TestUtils.similarity(other.object().string(), string);
+                        final double otherSimilarity = TestUtils.similarity(other.object().string(), string);
                         return Double.compare(similarity, otherSimilarity);
                     }
                 };
@@ -190,7 +190,7 @@ public class Global {
      * @param parameters the parameters
      * @return an array of {@link TutorRobot}s with the given parameters
      */
-    public static TutorRobot[] createRobots(RobotState... parameters) {
+    public static TutorRobot[] createRobots(final RobotState... parameters) {
         return Arrays.stream(parameters).map(Global::createRobot).toArray(TutorRobot[]::new);
     }
 
@@ -200,7 +200,7 @@ public class Global {
      * @param parameters the parameters
      * @return a {@link TutorRobot} with the given parameters
      */
-    public static TutorRobot createRobot(RobotState parameters) {
+    public static TutorRobot createRobot(final RobotState parameters) {
         return mockX(TUTOR_ROBOT_LINK, parameters.x, parameters.y, parameters.direction);
     }
 
@@ -210,7 +210,7 @@ public class Global {
      * @param robot the robot
      * @return a {@link RobotState} with the given parameters
      */
-    public static RobotState createState(Robot robot) {
+    public static RobotState createState(final Robot robot) {
         return new RobotState(robot.getX(), robot.getY(), robot.getDirection());
     }
 

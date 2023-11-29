@@ -26,7 +26,7 @@ public class MultiFamilyRobot extends Robot {
      * @param y        the position on the y-axis
      * @param families the sequence of families to change between
      */
-    public MultiFamilyRobot(int x, int y, RobotFamily[] families) {
+    public MultiFamilyRobot(final int x, final int y, final RobotFamily[] families) {
         super(x, y, families[0]);
         this.families = families;
     }
@@ -56,7 +56,7 @@ public class MultiFamilyRobot extends Robot {
      *
      * @param exchange whether to exchange the robot family
      */
-    public void move(boolean exchange) {
+    public void move(final boolean exchange) {
         super.move();
         if (exchange) {
             exchange();

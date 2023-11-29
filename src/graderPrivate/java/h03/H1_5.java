@@ -57,8 +57,8 @@ public class H1_5 {
 
     @Test
     public void testSuperCall() {
-        var numberOfCalls = MULTI_FAMILY_ROBOT_MOVE_WITH_PARAMETER_L.get().getCtElement().getDirectChildren().stream()
-            .flatMap(e -> (e instanceof CtBlock<?> b) ? b.getDirectChildren().stream() : Stream.of())
+        final var numberOfCalls = MULTI_FAMILY_ROBOT_MOVE_WITH_PARAMETER_L.get().getCtElement().getDirectChildren().stream()
+            .flatMap(e -> (e instanceof final CtBlock<?> b) ? b.getDirectChildren().stream() : Stream.of())
             .filter(e -> e instanceof CtInvocation<?>)
             .filter(e -> ((CtInvocation<?>) e).getTarget() instanceof CtSuperAccess<?>)
             .filter(e -> ((CtInvocation<?>) e).getExecutable().getSimpleName().equals("move"))
@@ -74,15 +74,15 @@ public class H1_5 {
     @ParameterizedTest
     @CsvSource({"false", "true"})
     public void testExchangeCall(
-        boolean shouldExchange
+        final boolean shouldExchange
     ) {
-        var parameters = new MultiFamilyRobot_Parameters(
+        final var parameters = new MultiFamilyRobot_Parameters(
             2,
             2,
             new RobotFamily[]{SQUARE_WHITE, SQUARE_BLACK}
         );
-        var robot = new MultiFamilyRobot_Student(parameters);
-        var context = contextBuilder()
+        final var robot = new MultiFamilyRobot_Student(parameters);
+        final var context = contextBuilder()
             .add(context(parameters))
             .add("shouldExchange", shouldExchange)
             .build();

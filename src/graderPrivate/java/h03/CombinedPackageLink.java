@@ -22,7 +22,7 @@ public class CombinedPackageLink implements PackageLink {
      *
      * @param packageLinks the {@link PackageLink}s to combine
      */
-    public CombinedPackageLink(PackageLink... packageLinks) {
+    public CombinedPackageLink(final PackageLink... packageLinks) {
         typeLinks = Arrays.stream(packageLinks).flatMap(pl -> pl.getTypes().stream()).toList();
     }
 

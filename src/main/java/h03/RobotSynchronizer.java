@@ -39,7 +39,7 @@ public class RobotSynchronizer {
      *
      * @param robots the set of robots
      */
-    public RobotSynchronizer(Robot[] robots) {
+    public RobotSynchronizer(final Robot[] robots) {
         this.robots = robots;
     }
 
@@ -49,7 +49,7 @@ public class RobotSynchronizer {
      *
      * @param x the position on the x-axis
      */
-    public void setX(int x) {
+    public void setX(final int x) {
         if (x >= 0 && x < World.getWidth()) {
             this.x = x;
         }
@@ -61,7 +61,7 @@ public class RobotSynchronizer {
      *
      * @param y the position on the y-axis
      */
-    public void setY(int y) {
+    public void setY(final int y) {
         if (y >= 0 && y < World.getHeight()) {
             this.y = y;
         }
@@ -73,7 +73,7 @@ public class RobotSynchronizer {
      *
      * @param direction the direction
      */
-    public void setDirection(Direction direction) {
+    public void setDirection(final Direction direction) {
         if (direction != null) {
             this.direction = direction;
         }
@@ -85,10 +85,10 @@ public class RobotSynchronizer {
      * the current position/direction of the corresponding robot will be used instead.
      */
     public void sync() {
-        for (Robot r : robots) {
-            int goalX = this.x != -1 ? this.x : r.getX();
-            int goalY = this.y != -1 ? this.y : r.getY();
-            Direction goalDir = this.direction != null ? this.direction : r.getDirection();
+        for (final Robot r : robots) {
+            final int goalX = this.x != -1 ? this.x : r.getX();
+            final int goalY = this.y != -1 ? this.y : r.getY();
+            final Direction goalDir = this.direction != null ? this.direction : r.getDirection();
             while (true) {
                 while (
                     r.getDirection() == UP && r.getY() < goalY

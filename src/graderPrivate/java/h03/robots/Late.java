@@ -29,7 +29,7 @@ public class Late<T> {
      *
      * @param supplier the supplier that initializes the object
      */
-    public Late(Supplier<T> supplier) {
+    public Late(final Supplier<T> supplier) {
         this.supplier = supplier;
     }
 
@@ -42,7 +42,7 @@ public class Late<T> {
         if (object == null && exception == null) {
             try {
                 object = supplier.get();
-            } catch (RuntimeException e) {
+            } catch (final RuntimeException e) {
                 exception = e;
             }
         }
@@ -59,7 +59,7 @@ public class Late<T> {
      * @param <T>      the type of the object
      * @return the lazy object
      */
-    public static <T> Late<T> of(Supplier<T> supplier) {
+    public static <T> Late<T> of(final Supplier<T> supplier) {
         return new Late<>(supplier);
     }
 }

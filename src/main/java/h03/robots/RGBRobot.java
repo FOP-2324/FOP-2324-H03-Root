@@ -29,7 +29,7 @@ public class RGBRobot extends MultiFamilyRobot {
      * @param y        the position on the y-axis
      * @param inverted whether the sequence of predefined robot families should be inverted
      */
-    public RGBRobot(int x, int y, boolean inverted) {
+    public RGBRobot(final int x, final int y, final boolean inverted) {
         super(x, y, !inverted ? RGB : BRG);
     }
 

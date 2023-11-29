@@ -35,7 +35,7 @@ public class Utils {
      * @return the object
      */
     @SuppressWarnings("unchecked")
-    public static <T> T assertIsInstance(Object object, Class<T> type) {
+    public static <T> T assertIsInstance(final Object object, final Class<T> type) {
         testOfObjectBuilder().expected(
             ExpectedObject.of(type, t -> type.isAssignableFrom(object.getClass()), n -> "subclass of " + n
             )
@@ -55,7 +55,7 @@ public class Utils {
      * @return the mock
      */
     @SuppressWarnings("unchecked")
-    public static <T> T mockX(TypeLink l, Object... args) {
+    public static <T> T mockX(final TypeLink l, final Object... args) {
         try {
             return (T) Mockito.mock(
                 l.reflection(),
@@ -63,10 +63,10 @@ public class Utils {
                     .defaultAnswer(CALLS_REAL_METHODS)
                     .useConstructor(args)
             );
-        } catch (MockitoException e) {
-            if (e.getCause() instanceof org.mockito.creation.instance.InstantiationException e1) {
-                if (e1.getCause() instanceof InvocationTargetException e2) {
-                    if (e2.getCause() instanceof RuntimeException re) {
+        } catch (final MockitoException e) {
+            if (e.getCause() instanceof final org.mockito.creation.instance.InstantiationException e1) {
+                if (e1.getCause() instanceof final InvocationTargetException e2) {
+                    if (e2.getCause() instanceof final RuntimeException re) {
                         throw re;
                     }
                 }
@@ -84,15 +84,15 @@ public class Utils {
      * @param preCommentSupplier   the pre comment supplier
      */
     public static void verifyX(
-        Runnable verificationRunnable,
-        Runnable testRunnable,
-        Context context,
-        PreCommentSupplier<? super ResultOfFail> preCommentSupplier
+        final Runnable verificationRunnable,
+        final Runnable testRunnable,
+        final Context context,
+        final PreCommentSupplier<? super ResultOfFail> preCommentSupplier
     ) {
         testRunnable.run();
         try {
             verificationRunnable.run();
-        } catch (AssertionFailedError e) {
+        } catch (final AssertionFailedError e) {
             Assertions2.fail(
                 context,
                 preCommentSupplier

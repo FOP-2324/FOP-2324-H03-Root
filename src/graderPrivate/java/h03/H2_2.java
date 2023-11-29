@@ -65,10 +65,10 @@ public class H2_2 {
     @ParameterizedTest
     @JsonClasspathSource("h03/H2_2_1.json")
     public void testConstructor1Implementation(
-        @Property("parameters") ChessBoardRobot_Parameters_1 parameters,
-        @Property("expected") RobotFamily[] expected
+        @Property("parameters") final ChessBoardRobot_Parameters_1 parameters,
+        @Property("expected") final RobotFamily[] expected
     ) {
-        var robot = new ChessBoardRobot_Student(parameters);
+        final var robot = new ChessBoardRobot_Student(parameters);
         Assertions2.assertEquals(
             List.of(expected),
             List.of(robot.families()),
@@ -91,10 +91,10 @@ public class H2_2 {
     @ParameterizedTest
     @JsonClasspathSource("h03/H2_2_2.json")
     public void testConstructor2Implementation(
-        @Property("parameters") ChessBoardRobot_Parameters_2 parameters,
-        @Property("expected") RobotFamily[] expected
+        @Property("parameters") final ChessBoardRobot_Parameters_2 parameters,
+        @Property("expected") final RobotFamily[] expected
     ) {
-        var robot = new ChessBoardRobot_Student(parameters);
+        final var robot = new ChessBoardRobot_Student(parameters);
         Assertions2.assertEquals(
             List.of(expected),
             List.of(robot.families()),

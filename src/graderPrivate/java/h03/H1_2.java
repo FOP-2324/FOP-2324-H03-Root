@@ -47,10 +47,10 @@ public class H1_2 {
     @ParameterizedTest
     @JsonClasspathSource("h03/H1_2_1.json")
     public void testInitialization1(
-        @Property("parameters") MultiFamilyRobot_Parameters parameters,
-        @Property("expected") MultiFamilyRobot_State expected
+        @Property("parameters") final MultiFamilyRobot_Parameters parameters,
+        @Property("expected") final MultiFamilyRobot_State expected
     ) {
-        var robot = new MultiFamilyRobot_Student(parameters);
+        final var robot = new MultiFamilyRobot_Student(parameters);
         assertEquals(
             expected,
             robot.state(),
@@ -72,9 +72,9 @@ public class H1_2 {
     @ParameterizedTest
     @JsonClasspathSource("h03/H1_2_1.json")
     public void testInitialization2(
-        @Property("parameters") MultiFamilyRobot_Parameters parameters
+        @Property("parameters") final MultiFamilyRobot_Parameters parameters
     ) {
-        var robot = new MultiFamilyRobot_Student(parameters);
+        final var robot = new MultiFamilyRobot_Student(parameters);
         assertEquals(
             parameters.families(),
             robot.families(),

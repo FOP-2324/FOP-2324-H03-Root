@@ -128,9 +128,9 @@ public class Robots_Student {
          *
          * @param values the parameters to initialize the MultiFamilyRobot with
          */
-        public MultiFamilyRobot_Student(MultiFamilyRobot_Parameters values) {
+        public MultiFamilyRobot_Student(final MultiFamilyRobot_Parameters values) {
             MULTI_FAMILY_ROBOT_CONSTRUCTOR_TL.get();
-            var object = Assertions2.callObject(
+            final var object = Assertions2.callObject(
                 () -> mockX(MULTI_FAMILY_ROBOT_LINK.get(), values.x, values.y, values.families),
                 contextBuilder()
                     .subject(MULTI_FAMILY_ROBOT_CONSTRUCTOR_TL.get())
@@ -159,7 +159,7 @@ public class Robots_Student {
          *
          * @param context the test context
          */
-        public void super_move(Context context) {
+        public void super_move(final Context context) {
             Assertions2.call(
                 () -> ROBOT_MOVE.invoke(object),
                 contextBuilder()
@@ -175,7 +175,7 @@ public class Robots_Student {
          *
          * @param context the test context
          */
-        public void move(Context context) {
+        public void move(final Context context) {
             Assertions2.call(
                 () -> MULTI_FAMILY_ROBOT_MOVE_WITHOUT_PARAMETER_L.get().invoke(object),
                 contextBuilder()
@@ -192,7 +192,7 @@ public class Robots_Student {
          * @param shouldExchange whether the robot should exchange
          * @param context        the test context
          */
-        public void move(boolean shouldExchange, Context context) {
+        public void move(final boolean shouldExchange, final Context context) {
             Assertions2.call(
                 () -> MULTI_FAMILY_ROBOT_MOVE_WITH_PARAMETER_L.get().invoke(object, shouldExchange),
                 contextBuilder()
@@ -208,7 +208,7 @@ public class Robots_Student {
          *
          * @param context the test context
          */
-        public void exchange(Context context) {
+        public void exchange(final Context context) {
             Assertions2.call(
                 () -> MULTI_FAMILY_ROBOT_EXCHANGE_LINK.get().invoke(object),
                 contextBuilder()
@@ -299,9 +299,9 @@ public class Robots_Student {
          *
          * @param values the parameters to initialize the RGBRobot with
          */
-        public RGBRobot_Student(RGBRobot_Parameters values) {
+        public RGBRobot_Student(final RGBRobot_Parameters values) {
             RGB_ROBOT_CONSTRUCTOR_LINK.get();
-            var object = Assertions2.callObject(
+            final var object = Assertions2.callObject(
                 () -> mockX(RGB_ROBOT_LINK.get(), values.x, values.y, values.inverted),
                 contextBuilder()
                     .subject(RGB_ROBOT_CONSTRUCTOR_LINK.get())
@@ -315,7 +315,7 @@ public class Robots_Student {
         /**
          * Tests that the RGBRobot#testRGB was declared correctly.
          */
-        public void testRGB(Context context) {
+        public void testRGB(final Context context) {
             Assertions2.call(
                 () -> RGB_ROBOT_TEST_RGB_LINK.get().invoke(object),
                 contextBuilder()
@@ -331,7 +331,7 @@ public class Robots_Student {
          *
          * @param context the test context
          */
-        public void exchange(Context context) {
+        public void exchange(final Context context) {
             Assertions2.call(
                 () -> MULTI_FAMILY_ROBOT_EXCHANGE_LINK.get().invoke(object),
                 contextBuilder()
@@ -409,9 +409,9 @@ public class Robots_Student {
          *
          * @param parameters the parameters to initialize the ChessBoardRobot with
          */
-        public ChessBoardRobot_Student(ChessBoardRobot_Parameters_1 parameters) {
+        public ChessBoardRobot_Student(final ChessBoardRobot_Parameters_1 parameters) {
             CHESS_BOARD_ROBOT_CONSTRUCTOR_1_LINK.get();
-            var object = Assertions2.callObject(
+            final var object = Assertions2.callObject(
                 () -> mockX(CHESS_BOARD_ROBOT_LINK.get(), parameters.x, parameters.y, parameters.even, parameters.odd),
                 contextBuilder()
                     .subject(CHESS_BOARD_ROBOT_CONSTRUCTOR_1_LINK.get())
@@ -427,9 +427,9 @@ public class Robots_Student {
          *
          * @param parameters the parameters to initialize the ChessBoardRobot with
          */
-        public ChessBoardRobot_Student(ChessBoardRobot_Parameters_2 parameters) {
+        public ChessBoardRobot_Student(final ChessBoardRobot_Parameters_2 parameters) {
             CHESS_BOARD_ROBOT_CONSTRUCTOR_2_LINK.get();
-            var object = Assertions2.callObject(
+            final var object = Assertions2.callObject(
                 () -> mockX(CHESS_BOARD_ROBOT_LINK.get(), parameters.x, parameters.y),
                 contextBuilder()
                     .subject(CHESS_BOARD_ROBOT_CONSTRUCTOR_2_LINK.get())

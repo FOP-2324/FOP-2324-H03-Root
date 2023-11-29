@@ -50,8 +50,8 @@ public class H1_3 {
     @ParameterizedTest
     @JsonClasspathSource("h03/H1_3_1.json")
     public void testExchangeN_1(
-        @Property("parameters") MultiFamilyRobot_Parameters parameters,
-        @Property("expected") MultiFamilyRobot_State[] expected
+        @Property("parameters") final MultiFamilyRobot_Parameters parameters,
+        @Property("expected") final MultiFamilyRobot_State[] expected
     ) {
         VA_CHECK.get();
         testExchange(parameters, expected);
@@ -60,8 +60,8 @@ public class H1_3 {
     @ParameterizedTest
     @JsonClasspathSource("h03/H1_3_2.json")
     public void testExchangeMore(
-        @Property("parameters") MultiFamilyRobot_Parameters parameters,
-        @Property("expected") MultiFamilyRobot_State[] expected
+        @Property("parameters") final MultiFamilyRobot_Parameters parameters,
+        @Property("expected") final MultiFamilyRobot_State[] expected
     ) {
         VA_CHECK.get();
         testExchange(parameters, expected);
@@ -74,12 +74,12 @@ public class H1_3 {
      * @param expected   the expected states
      */
     public void testExchange(
-        MultiFamilyRobot_Parameters parameters,
-        MultiFamilyRobot_State[] expected
+        final MultiFamilyRobot_Parameters parameters,
+        final MultiFamilyRobot_State[] expected
     ) {
-        var robot = new Robots_Student.MultiFamilyRobot_Student(parameters);
+        final var robot = new Robots_Student.MultiFamilyRobot_Student(parameters);
         for (int n = 0; n < expected.length; n++) {
-            var context = contextBuilder()
+            final var context = contextBuilder()
                 .add(context(parameters))
                 .add("numberOfCall", n + 1)
                 .build();

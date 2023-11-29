@@ -71,14 +71,14 @@ public class H2_1 {
 
     @ParameterizedTest
     @CsvSource({"false", "true"})
-    public void testConstructor(boolean inverted) {
-        var parameters = new RGBRobot_Parameters(
+    public void testConstructor(final boolean inverted) {
+        final var parameters = new RGBRobot_Parameters(
             1,
             1,
             inverted
         );
-        var robot = new RGBRobot_Student(parameters);
-        var families = !inverted
+        final var robot = new RGBRobot_Student(parameters);
+        final var families = !inverted
                        ? new RobotFamily[]{SQUARE_RED, SQUARE_GREEN, SQUARE_BLUE}
                        : new RobotFamily[]{SQUARE_BLUE, SQUARE_GREEN, SQUARE_RED};
         assertEquals(
@@ -104,12 +104,12 @@ public class H2_1 {
 
     @Test
     public void testTestRGBImplementation() {
-        var parameters = new RGBRobot_Parameters(
+        final var parameters = new RGBRobot_Parameters(
             1,
             1,
             false
         );
-        var robot = new RGBRobot_Student(parameters);
+        final var robot = new RGBRobot_Student(parameters);
         verifyX(
             () -> {
                 verify(robot.object, times(3));

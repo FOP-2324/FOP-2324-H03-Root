@@ -161,7 +161,7 @@ public class RobotSynchronizer_Student {
      * @param robots  the robots to synchronize
      * @param context the context
      */
-    public RobotSynchronizer_Student(Robot[] robots, Context context) {
+    public RobotSynchronizer_Student(final Robot[] robots, final Context context) {
         ROBOT_SYNCHRONIZER_CONSTRUCTOR_LINK.get();
 
         this.object = Assertions2.callObject(
@@ -207,7 +207,7 @@ public class RobotSynchronizer_Student {
      * @param x       the x coordinate of the robot
      * @param context the context
      */
-    public void setX(int x, Context context) {
+    public void setX(final int x, final Context context) {
         Assertions2.call(
             () -> ROBOT_SYNCHRONIZER_SET_X_LINK.get().invoke(object, x),
             contextBuilder()
@@ -224,7 +224,7 @@ public class RobotSynchronizer_Student {
      * @param y       the y coordinate of the robot
      * @param context the context
      */
-    public void setY(int y, Context context) {
+    public void setY(final int y, final Context context) {
         Assertions2.call(
             () -> ROBOT_SYNCHRONIZER_SET_Y_LINK.get().invoke(object, y),
             contextBuilder()
@@ -241,7 +241,7 @@ public class RobotSynchronizer_Student {
      * @param direction the direction of the robot
      * @param context   the context
      */
-    public void setDirection(Direction direction, Context context) {
+    public void setDirection(final Direction direction, final Context context) {
         Assertions2.call(
             () -> ROBOT_SYNCHRONIZER_SET_DIRECTION_LINK.get().invoke(object, direction),
             contextBuilder()
@@ -257,7 +257,7 @@ public class RobotSynchronizer_Student {
      *
      * @param context the context
      */
-    public void sync(Context context) {
+    public void sync(final Context context) {
         Assertions2.call(
             () -> ROBOT_SYNCHRONIZER_SYNC_LINK.get().invoke(object),
             contextBuilder()

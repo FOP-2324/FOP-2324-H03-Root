@@ -1,9 +1,9 @@
 package h03;
 
 import fopbot.World;
+import h03.robots.Robots_Student.MultiFamilyRobot_Student;
 import h03.robots.Robots_Student.MultiFamilyRobot_Student.MultiFamilyRobot_Parameters;
 import h03.robots.Robots_Student.MultiFamilyRobot_Student.MultiFamilyRobot_State;
-import h03.robots.Robots_Student.MultiFamilyRobot_Student;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
@@ -17,8 +17,14 @@ import static h03.robots.Robots_Student.MultiFamilyRobot_Student.MULTI_FAMILY_RO
 import static org.tudalgo.algoutils.tutor.general.assertions.Assertions2.assertEquals;
 import static org.tudalgo.algoutils.tutor.general.assertions.Assertions2.context;
 import static org.tudalgo.algoutils.tutor.general.assertions.Assertions3.assertCorrectModifiers;
-import static org.tudalgo.algoutils.tutor.general.reflections.Modifier.*;
+import static org.tudalgo.algoutils.tutor.general.reflections.Modifier.FINAL;
+import static org.tudalgo.algoutils.tutor.general.reflections.Modifier.NON_STATIC;
+import static org.tudalgo.algoutils.tutor.general.reflections.Modifier.PRIVATE;
+import static org.tudalgo.algoutils.tutor.general.reflections.Modifier.PUBLIC;
 
+/**
+ * H1_2 Tests.
+ */
 @TestForSubmission
 public class H1_2 {
 

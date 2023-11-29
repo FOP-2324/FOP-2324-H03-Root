@@ -2,8 +2,8 @@ package h03;
 
 import fopbot.RobotFamily;
 import fopbot.World;
-import h03.robots.Robots_Student.MultiFamilyRobot_Student.MultiFamilyRobot_Parameters;
 import h03.robots.Robots_Student.MultiFamilyRobot_Student;
+import h03.robots.Robots_Student.MultiFamilyRobot_Student.MultiFamilyRobot_Parameters;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.sourcegrade.jagr.api.rubric.TestForSubmission;
@@ -15,12 +15,15 @@ import java.util.stream.Stream;
 
 import static fopbot.RobotFamily.SQUARE_BLACK;
 import static fopbot.RobotFamily.SQUARE_WHITE;
-import static h03.Utils.verifyX;
 import static h03.Global.VOID_LINK;
+import static h03.Utils.verifyX;
 import static h03.robots.Robots_Student.MultiFamilyRobot_Student.MULTI_FAMILY_ROBOT_MOVE_WITHOUT_PARAMETER_L;
 import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
-import static org.tudalgo.algoutils.tutor.general.assertions.Assertions2.*;
+import static org.tudalgo.algoutils.tutor.general.assertions.Assertions2.context;
+import static org.tudalgo.algoutils.tutor.general.assertions.Assertions2.contextBuilder;
+import static org.tudalgo.algoutils.tutor.general.assertions.Assertions2.emptyContext;
+import static org.tudalgo.algoutils.tutor.general.assertions.Assertions2.fail;
 import static org.tudalgo.algoutils.tutor.general.assertions.Assertions3.assertCorrectModifiers;
 import static org.tudalgo.algoutils.tutor.general.assertions.Assertions3.assertCorrectReturnType;
 import static org.tudalgo.algoutils.tutor.general.match.BasicReflectionMatchers.sameType;
@@ -28,6 +31,9 @@ import static org.tudalgo.algoutils.tutor.general.reflections.Modifier.NON_STATI
 import static org.tudalgo.algoutils.tutor.general.reflections.Modifier.PUBLIC;
 import static org.tudalgo.algoutils.tutor.general.stringify.HTML.tt;
 
+/**
+ * H1_4 Tests.
+ */
 @TestForSubmission
 public class H1_4 {
 

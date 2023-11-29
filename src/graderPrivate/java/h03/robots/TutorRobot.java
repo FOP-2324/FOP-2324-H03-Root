@@ -4,13 +4,32 @@ import fopbot.Direction;
 import fopbot.Robot;
 import org.tudalgo.algoutils.tutor.general.reflections.BasicTypeLink;
 
+/**
+ * A robot that counts the number of moves and turns.
+ */
 public class TutorRobot extends Robot {
 
+    /**
+     * The number of moves.
+     */
     int numberOfMoves = 0;
+    /**
+     * The number of turns.
+     */
     int numberOfTurns = 0;
 
+    /**
+     * The TutorRobot class link.
+     */
     public static BasicTypeLink TUTOR_ROBOT_LINK = BasicTypeLink.of(TutorRobot.class);
 
+    /**
+     * Creates a new TutorRobot.
+     *
+     * @param x         The x coordinate.
+     * @param y         The y coordinate.
+     * @param direction The direction.
+     */
     public TutorRobot(int x, int y, Direction direction) {
         super(x, y, direction, 0);
     }
@@ -37,10 +56,21 @@ public class TutorRobot extends Robot {
         );
     }
 
+    /**
+     * Gets the number of moves and turns.
+     *
+     * @return The number of moves and turns.
+     */
     public RobotCounters getRobotCounters() {
         return new RobotCounters(numberOfMoves, numberOfTurns);
     }
 
+    /**
+     * The number of moves and turns.
+     *
+     * @param numberOfMoves The number of moves.
+     * @param numberOfTurns The number of turns.
+     */
     public record RobotCounters(
         int numberOfMoves,
         int numberOfTurns

@@ -15,7 +15,9 @@ import org.tudalgo.algoutils.tutor.general.assertions.Assertions2;
 
 import java.util.List;
 
-import static h03.robots.Robots_Student.ChessBoardRobot_Student.*;
+import static h03.robots.Robots_Student.ChessBoardRobot_Student.CHESS_BOARD_ROBOT_CONSTRUCTOR_1_LINK;
+import static h03.robots.Robots_Student.ChessBoardRobot_Student.CHESS_BOARD_ROBOT_CONSTRUCTOR_2_LINK;
+import static h03.robots.Robots_Student.ChessBoardRobot_Student.CHESS_BOARD_ROBOT_LINK;
 import static h03.robots.Robots_Student.MultiFamilyRobot_Student.MULTI_FAMILY_ROBOT_LINK;
 import static org.tudalgo.algoutils.tutor.general.assertions.Assertions2.context;
 import static org.tudalgo.algoutils.tutor.general.assertions.Assertions2.contextBuilder;
@@ -24,6 +26,9 @@ import static org.tudalgo.algoutils.tutor.general.assertions.Assertions3.assertC
 import static org.tudalgo.algoutils.tutor.general.match.TypeMatchers.sameSuperType;
 import static org.tudalgo.algoutils.tutor.general.reflections.Modifier.PUBLIC;
 
+/**
+ * H2_2 Tests.
+ */
 @TestForSubmission
 public class H2_2 {
 

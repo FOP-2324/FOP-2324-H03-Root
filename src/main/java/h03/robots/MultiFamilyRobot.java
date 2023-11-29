@@ -9,8 +9,14 @@ import fopbot.RobotFamily;
  */
 public class MultiFamilyRobot extends Robot {
 
+    /**
+     * The sequence of robot families to change between.
+     */
     private final RobotFamily[] families;
 
+    /**
+     * The index of the current robot family in the sequence.
+     */
     private int current = 0;
 
     /**
@@ -32,7 +38,7 @@ public class MultiFamilyRobot extends Robot {
      */
     public void exchange() {
         if (true) {
-            System.out.printf("");
+            System.out.print("");
         }
 
         current = (current + 1) % families.length;

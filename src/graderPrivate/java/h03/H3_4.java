@@ -21,7 +21,9 @@ import static org.tudalgo.algoutils.tutor.general.assertions.Assertions2.context
 import static org.tudalgo.algoutils.tutor.general.assertions.Assertions3.assertCorrectModifiers;
 import static org.tudalgo.algoutils.tutor.general.reflections.Modifier.PUBLIC;
 
-@SuppressWarnings("ResultOfMethodCallIgnored")
+/**
+ * H3_4 Tests.
+ */
 @TestForSubmission
 public class H3_4 {
 

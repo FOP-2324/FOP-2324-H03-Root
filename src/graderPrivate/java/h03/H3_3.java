@@ -18,7 +18,9 @@ import static org.tudalgo.algoutils.tutor.general.assertions.Assertions3.assertC
 import static org.tudalgo.algoutils.tutor.general.reflections.Modifier.PRIVATE;
 import static org.tudalgo.algoutils.tutor.general.reflections.Modifier.PUBLIC;
 
-@SuppressWarnings("ResultOfMethodCallIgnored")
+/**
+ * H3_3 Tests.
+ */
 @TestForSubmission
 public class H3_3 {
 

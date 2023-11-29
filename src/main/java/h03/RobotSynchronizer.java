@@ -1,13 +1,14 @@
 package h03;
 
+import fopbot.Direction;
+import fopbot.Robot;
+import fopbot.World;
+
 import static fopbot.Direction.DOWN;
 import static fopbot.Direction.LEFT;
 import static fopbot.Direction.RIGHT;
 import static fopbot.Direction.UP;
 
-import fopbot.Direction;
-import fopbot.Robot;
-import fopbot.World;
 
 /**
  * A {@link RobotSynchronizer} is used to synchronize the position and direction of each robot of a set of robots
@@ -16,8 +17,21 @@ import fopbot.World;
 
 public class RobotSynchronizer {
 
+    /**
+     * The set of robots to synchronize.
+     */
     private final Robot[] robots;
-    private int x = -1, y = -1;
+    /**
+     * The position on the x-axis to sync the robots with.
+     */
+    private int x = -1;
+    /**
+     * The position on the y-axis to sync the robots with.
+     */
+    private int y = -1;
+    /**
+     * The {@link Direction} to sync the robots with.
+     */
     private Direction direction = null;
 
     /**
@@ -77,10 +91,10 @@ public class RobotSynchronizer {
             Direction goalDir = this.direction != null ? this.direction : r.getDirection();
             while (true) {
                 while (
-                    r.getDirection() == UP && r.getY() < goalY ||
-                        r.getDirection() == RIGHT && r.getX() < goalX ||
-                        r.getDirection() == DOWN && r.getY() > goalY ||
-                        r.getDirection() == LEFT && r.getX() > goalX
+                    r.getDirection() == UP && r.getY() < goalY
+                        || r.getDirection() == RIGHT && r.getX() < goalX
+                        || r.getDirection() == DOWN && r.getY() > goalY
+                        || r.getDirection() == LEFT && r.getX() > goalX
                 ) {
                     r.move();
                 }

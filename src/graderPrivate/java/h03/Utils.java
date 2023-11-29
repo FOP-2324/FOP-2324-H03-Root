@@ -16,10 +16,24 @@ import static org.mockito.Mockito.CALLS_REAL_METHODS;
 import static org.mockito.Mockito.withSettings;
 import static org.tudalgo.algoutils.tutor.general.assertions.Assertions2.testOfObjectBuilder;
 
+/**
+ * Test utilities.
+ */
 public class Utils {
 
+    /**
+     * The message for the assertion that the state is wrong after initialization.
+     */
     public static String WRONG_STATE_AFTER_INITIALIZATION = "wrong state after initialization";
 
+    /**
+     * Asserts that the given object is an instance of the given type.
+     *
+     * @param object the object
+     * @param type   the type
+     * @param <T>    the type
+     * @return the object
+     */
     @SuppressWarnings("unchecked")
     public static <T> T assertIsInstance(Object object, Class<T> type) {
         testOfObjectBuilder().expected(
@@ -32,6 +46,14 @@ public class Utils {
         return (T) object;
     }
 
+    /**
+     * Mocks an object of the given type.
+     *
+     * @param l    the type link
+     * @param args the constructor arguments
+     * @param <T>  the type
+     * @return the mock
+     */
     @SuppressWarnings("unchecked")
     public static <T> T mockX(TypeLink l, Object... args) {
         try {
@@ -53,6 +75,14 @@ public class Utils {
         }
     }
 
+    /**
+     * Does some verification and fails if the verification fails.
+     *
+     * @param verificationRunnable the verification runnable
+     * @param testRunnable         the test runnable
+     * @param context              the context
+     * @param preCommentSupplier   the pre comment supplier
+     */
     public static void verifyX(
         Runnable verificationRunnable,
         Runnable testRunnable,

@@ -19,7 +19,7 @@ public class ChessBoardRobot extends MultiFamilyRobot {
      * @param odd  the robot family to use for odd fields
      */
     public ChessBoardRobot(int x, int y, RobotFamily even, RobotFamily odd) {
-        super(x, y, (x + y) % 2 == 0 ? new RobotFamily[] {even, odd} : new RobotFamily[] {odd, even});
+        super(x, y, (x + y) % 2 == 0 ? new RobotFamily[]{even, odd} : new RobotFamily[]{odd, even});
     }
 
     /**

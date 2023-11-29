@@ -4,14 +4,21 @@ import java.util.function.Supplier;
 
 public class Late<T> {
 
+    private final String name;
+
     private final Supplier<T> supplier;
 
     private T object;
 
     private RuntimeException exception;
 
-    public Late(Supplier<T> supplier) {
+    public Late(String name, Supplier<T> supplier) {
+        this.name = name;
         this.supplier = supplier;
+    }
+
+    public String name() {
+        return name;
     }
 
     public T get() {
@@ -28,7 +35,7 @@ public class Late<T> {
         return object;
     }
 
-    public static <T> Late<T> of(Supplier<T> supplier) {
-        return new Late<>(supplier);
+    public static <T> Late<T> of(String name, Supplier<T> supplier) {
+        return new Late<>(name, supplier);
     }
 }

@@ -15,7 +15,9 @@ import org.tudalgo.algoutils.tutor.general.assertions.Assertions2;
 
 import java.util.List;
 
-import static h03.robots.Robots_Student.ChessBoardRobot_Student.*;
+import static h03.robots.Robots_Student.ChessBoardRobot_Student.CHESS_BOARD_ROBOT_CONSTRUCTOR_1_LINK;
+import static h03.robots.Robots_Student.ChessBoardRobot_Student.CHESS_BOARD_ROBOT_CONSTRUCTOR_2_LINK;
+import static h03.robots.Robots_Student.ChessBoardRobot_Student.CHESS_BOARD_ROBOT_LINK;
 import static h03.robots.Robots_Student.MultiFamilyRobot_Student.MULTI_FAMILY_ROBOT_LINK;
 import static org.tudalgo.algoutils.tutor.general.assertions.Assertions2.context;
 import static org.tudalgo.algoutils.tutor.general.assertions.Assertions2.contextBuilder;
@@ -24,6 +26,9 @@ import static org.tudalgo.algoutils.tutor.general.assertions.Assertions3.assertC
 import static org.tudalgo.algoutils.tutor.general.match.TypeMatchers.sameSuperType;
 import static org.tudalgo.algoutils.tutor.general.reflections.Modifier.PUBLIC;
 
+/**
+ * H2_2 Tests.
+ */
 @TestForSubmission
 public class H2_2 {
 
@@ -60,10 +65,10 @@ public class H2_2 {
     @ParameterizedTest
     @JsonClasspathSource("h03/H2_2_1.json")
     public void testConstructor1Implementation(
-        @Property("parameters") ChessBoardRobot_Parameters_1 parameters,
-        @Property("expected") RobotFamily[] expected
+        @Property("parameters") final ChessBoardRobot_Parameters_1 parameters,
+        @Property("expected") final RobotFamily[] expected
     ) {
-        var robot = new ChessBoardRobot_Student(parameters);
+        final var robot = new ChessBoardRobot_Student(parameters);
         Assertions2.assertEquals(
             List.of(expected),
             List.of(robot.families()),
@@ -86,10 +91,10 @@ public class H2_2 {
     @ParameterizedTest
     @JsonClasspathSource("h03/H2_2_2.json")
     public void testConstructor2Implementation(
-        @Property("parameters") ChessBoardRobot_Parameters_2 parameters,
-        @Property("expected") RobotFamily[] expected
+        @Property("parameters") final ChessBoardRobot_Parameters_2 parameters,
+        @Property("expected") final RobotFamily[] expected
     ) {
-        var robot = new ChessBoardRobot_Student(parameters);
+        final var robot = new ChessBoardRobot_Student(parameters);
         Assertions2.assertEquals(
             List.of(expected),
             List.of(robot.families()),

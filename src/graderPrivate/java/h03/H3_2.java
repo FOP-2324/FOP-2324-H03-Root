@@ -16,6 +16,9 @@ import static org.tudalgo.algoutils.tutor.general.assertions.Assertions2.context
 import static org.tudalgo.algoutils.tutor.general.assertions.Assertions2.emptyContext;
 import static org.tudalgo.algoutils.tutor.general.reflections.Modifier.PUBLIC;
 
+/**
+ * H3_2 Tests.
+ */
 @TestForSubmission
 public class H3_2 {
 
@@ -30,14 +33,14 @@ public class H3_2 {
     @Test
     public void testConstructorImplementation() {
         ROBOT_SYNCHRONIZER_ROBOTS_LINK.get();
-        var robots = new Robot[]{
+        final var robots = new Robot[]{
             createRobot(new RobotState(1, 1, Direction.UP)),
             createRobot(new RobotState(2, 2, Direction.RIGHT)),
             createRobot(new RobotState(3, 3, Direction.DOWN)),
             createRobot(new RobotState(4, 4, Direction.LEFT)),
         };
-        var listOfRobots = List.of(robots);
-        var synchronizer = new RobotSynchronizer_Student(robots, emptyContext());
+        final var listOfRobots = List.of(robots);
+        final var synchronizer = new RobotSynchronizer_Student(robots, emptyContext());
         Assertions2.assertEquals(
             listOfRobots,
             List.of(synchronizer.robots()),

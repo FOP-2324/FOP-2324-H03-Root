@@ -15,13 +15,19 @@ import org.tudalgo.algoutils.tutor.general.assertions.Assertions4;
 
 import static h03.Global.VOID_LINK;
 import static h03.robots.Robots_Student.MultiFamilyRobot_Student.MULTI_FAMILY_ROBOT_EXCHANGE_LINK;
-import static org.tudalgo.algoutils.tutor.general.assertions.Assertions2.*;
+import static org.tudalgo.algoutils.tutor.general.assertions.Assertions2.assertEquals;
+import static org.tudalgo.algoutils.tutor.general.assertions.Assertions2.context;
+import static org.tudalgo.algoutils.tutor.general.assertions.Assertions2.contextBuilder;
+import static org.tudalgo.algoutils.tutor.general.assertions.Assertions2.emptyContext;
 import static org.tudalgo.algoutils.tutor.general.assertions.Assertions3.assertCorrectModifiers;
 import static org.tudalgo.algoutils.tutor.general.assertions.Assertions3.assertCorrectReturnType;
 import static org.tudalgo.algoutils.tutor.general.match.BasicReflectionMatchers.sameType;
 import static org.tudalgo.algoutils.tutor.general.reflections.Modifier.NON_STATIC;
 import static org.tudalgo.algoutils.tutor.general.reflections.Modifier.PUBLIC;
 
+/**
+ * H1_3 Tests.
+ */
 @TestForSubmission
 public class H1_3 {
 
@@ -44,8 +50,8 @@ public class H1_3 {
     @ParameterizedTest
     @JsonClasspathSource("h03/H1_3_1.json")
     public void testExchangeN_1(
-        @Property("parameters") MultiFamilyRobot_Parameters parameters,
-        @Property("expected") MultiFamilyRobot_State[] expected
+        @Property("parameters") final MultiFamilyRobot_Parameters parameters,
+        @Property("expected") final MultiFamilyRobot_State[] expected
     ) {
         VA_CHECK.get();
         testExchange(parameters, expected);
@@ -54,20 +60,26 @@ public class H1_3 {
     @ParameterizedTest
     @JsonClasspathSource("h03/H1_3_2.json")
     public void testExchangeMore(
-        @Property("parameters") MultiFamilyRobot_Parameters parameters,
-        @Property("expected") MultiFamilyRobot_State[] expected
+        @Property("parameters") final MultiFamilyRobot_Parameters parameters,
+        @Property("expected") final MultiFamilyRobot_State[] expected
     ) {
         VA_CHECK.get();
         testExchange(parameters, expected);
     }
 
+    /**
+     * Tests the exchange method.
+     *
+     * @param parameters the parameters
+     * @param expected   the expected states
+     */
     public void testExchange(
-        MultiFamilyRobot_Parameters parameters,
-        MultiFamilyRobot_State[] expected
+        final MultiFamilyRobot_Parameters parameters,
+        final MultiFamilyRobot_State[] expected
     ) {
-        var robot = new Robots_Student.MultiFamilyRobot_Student(parameters);
+        final var robot = new Robots_Student.MultiFamilyRobot_Student(parameters);
         for (int n = 0; n < expected.length; n++) {
-            var context = contextBuilder()
+            final var context = contextBuilder()
                 .add(context(parameters))
                 .add("numberOfCall", n + 1)
                 .build();

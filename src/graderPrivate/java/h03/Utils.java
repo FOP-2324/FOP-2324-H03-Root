@@ -16,12 +16,26 @@ import static org.mockito.Mockito.CALLS_REAL_METHODS;
 import static org.mockito.Mockito.withSettings;
 import static org.tudalgo.algoutils.tutor.general.assertions.Assertions2.testOfObjectBuilder;
 
+/**
+ * Test utilities.
+ */
 public class Utils {
 
+    /**
+     * The message for the assertion that the state is wrong after initialization.
+     */
     public static String WRONG_STATE_AFTER_INITIALIZATION = "wrong state after initialization";
 
+    /**
+     * Asserts that the given object is an instance of the given type.
+     *
+     * @param object the object
+     * @param type   the type
+     * @param <T>    the type
+     * @return the object
+     */
     @SuppressWarnings("unchecked")
-    public static <T> T assertIsInstance(Object object, Class<T> type) {
+    public static <T> T assertIsInstance(final Object object, final Class<T> type) {
         testOfObjectBuilder().expected(
             ExpectedObject.of(type, t -> type.isAssignableFrom(object.getClass()), n -> "subclass of " + n
             )
@@ -32,8 +46,16 @@ public class Utils {
         return (T) object;
     }
 
+    /**
+     * Mocks an object of the given type.
+     *
+     * @param l    the type link
+     * @param args the constructor arguments
+     * @param <T>  the type
+     * @return the mock
+     */
     @SuppressWarnings("unchecked")
-    public static <T> T mockX(TypeLink l, Object... args) {
+    public static <T> T mockX(final TypeLink l, final Object... args) {
         try {
             return (T) Mockito.mock(
                 l.reflection(),
@@ -41,10 +63,10 @@ public class Utils {
                     .defaultAnswer(CALLS_REAL_METHODS)
                     .useConstructor(args)
             );
-        } catch (MockitoException e) {
-            if (e.getCause() instanceof org.mockito.creation.instance.InstantiationException e1) {
-                if (e1.getCause() instanceof InvocationTargetException e2) {
-                    if (e2.getCause() instanceof RuntimeException re) {
+        } catch (final MockitoException e) {
+            if (e.getCause() instanceof final org.mockito.creation.instance.InstantiationException e1) {
+                if (e1.getCause() instanceof final InvocationTargetException e2) {
+                    if (e2.getCause() instanceof final RuntimeException re) {
                         throw re;
                     }
                 }
@@ -53,16 +75,24 @@ public class Utils {
         }
     }
 
+    /**
+     * Does some verification and fails if the verification fails.
+     *
+     * @param verificationRunnable the verification runnable
+     * @param testRunnable         the test runnable
+     * @param context              the context
+     * @param preCommentSupplier   the pre comment supplier
+     */
     public static void verifyX(
-        Runnable verificationRunnable,
-        Runnable testRunnable,
-        Context context,
-        PreCommentSupplier<? super ResultOfFail> preCommentSupplier
+        final Runnable verificationRunnable,
+        final Runnable testRunnable,
+        final Context context,
+        final PreCommentSupplier<? super ResultOfFail> preCommentSupplier
     ) {
         testRunnable.run();
         try {
             verificationRunnable.run();
-        } catch (AssertionFailedError e) {
+        } catch (final AssertionFailedError e) {
             Assertions2.fail(
                 context,
                 preCommentSupplier

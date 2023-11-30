@@ -18,7 +18,9 @@ import static org.tudalgo.algoutils.tutor.general.assertions.Assertions3.assertC
 import static org.tudalgo.algoutils.tutor.general.reflections.Modifier.PRIVATE;
 import static org.tudalgo.algoutils.tutor.general.reflections.Modifier.PUBLIC;
 
-@SuppressWarnings("ResultOfMethodCallIgnored")
+/**
+ * H3_3 Tests.
+ */
 @TestForSubmission
 public class H3_3 {
 
@@ -34,7 +36,7 @@ public class H3_3 {
 
     @ParameterizedTest
     @CsvSource({"0", "1", "2"})
-    public void testMethodModifiers(int i) {
+    public void testMethodModifiers(final int i) {
         assertCorrectModifiers(
             RobotSynchronizer_Student.ROBOT_SYNCHRONIZER_METHOD_LINKS.get(i).get(),
             PUBLIC
@@ -43,7 +45,7 @@ public class H3_3 {
 
     @ParameterizedTest
     @CsvSource({"0", "1", "2"})
-    public void testAttributeModifiers(int i) {
+    public void testAttributeModifiers(final int i) {
         assertCorrectModifiers(
             RobotSynchronizer_Student.ROBOT_SYNCHRONIZER_ATTRIBUTE_LINKS.get(i).get(),
             PRIVATE
@@ -53,16 +55,16 @@ public class H3_3 {
     @ParameterizedTest
     @JsonClasspathSource("h03/H3_3_1.json")
     public void testImplementation(
-        @Property("robots") RobotState[] robotParameters,
-        @Property("parameters") RobotSynchronizerState parameters,
-        @Property("expected") RobotSynchronizerState expected
+        @Property("robots") final RobotState[] robotParameters,
+        @Property("parameters") final RobotSynchronizerState parameters,
+        @Property("expected") final RobotSynchronizerState expected
     ) {
-        var context = contextBuilder()
+        final var context = contextBuilder()
             .add("worldWidth", W)
             .add("worldHeight", H)
             .add(context(parameters))
             .build();
-        var synchronizer = new RobotSynchronizer_Student(createRobots(robotParameters), context);
+        final var synchronizer = new RobotSynchronizer_Student(createRobots(robotParameters), context);
         synchronizer.setX(parameters.x(), context);
         synchronizer.setY(parameters.y(), context);
         synchronizer.setDirection(parameters.direction(), context);

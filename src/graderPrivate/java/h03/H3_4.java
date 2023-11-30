@@ -21,7 +21,9 @@ import static org.tudalgo.algoutils.tutor.general.assertions.Assertions2.context
 import static org.tudalgo.algoutils.tutor.general.assertions.Assertions3.assertCorrectModifiers;
 import static org.tudalgo.algoutils.tutor.general.reflections.Modifier.PUBLIC;
 
-@SuppressWarnings("ResultOfMethodCallIgnored")
+/**
+ * H3_4 Tests.
+ */
 @TestForSubmission
 public class H3_4 {
 
@@ -46,18 +48,18 @@ public class H3_4 {
     @ParameterizedTest
     @JsonClasspathSource("h03/H3_4_1.json")
     public void testTarget(
-        @Property("robots") RobotState[] robotParameters,
-        @Property("parameters") RobotSynchronizerState parameters,
-        @Property("expected") RobotState[] expected
+        @Property("robots") final RobotState[] robotParameters,
+        @Property("parameters") final RobotSynchronizerState parameters,
+        @Property("expected") final RobotState[] expected
     ) {
-        var robots = createRobots(robotParameters);
-        var context = contextBuilder()
+        final var robots = createRobots(robotParameters);
+        final var context = contextBuilder()
             .add("worldWidth", W)
             .add("worldHeight", H)
             .add(context(parameters))
             .add("robots", robots)
             .build();
-        var synchronizer = new RobotSynchronizer_Student(Arrays.copyOf(robots, robots.length), context);
+        final var synchronizer = new RobotSynchronizer_Student(Arrays.copyOf(robots, robots.length), context);
         if (parameters.x() != -1) {
             synchronizer.setX(parameters.x(), context);
         }
@@ -69,7 +71,7 @@ public class H3_4 {
         }
         synchronizer.sync(context);
         for (int i = 0; i < robots.length; i++) {
-            int j = i;
+            final int j = i;
             Assertions2.assertEquals(
                 expected[i],
                 createState(robots[i]),
@@ -82,24 +84,24 @@ public class H3_4 {
     @ParameterizedTest
     @JsonClasspathSource("h03/H3_4_2.json")
     public void testRobotCounters(
-        @Property("robots") RobotState[] initialRobotStates,
-        @Property("parameters") RobotSynchronizerState parameters,
-        @Property("expected") RobotCounters[] expectedRobotCounters
+        @Property("robots") final RobotState[] initialRobotStates,
+        @Property("parameters") final RobotSynchronizerState parameters,
+        @Property("expected") final RobotCounters[] expectedRobotCounters
     ) {
-        var robots = createRobots(initialRobotStates);
-        var context = contextBuilder()
+        final var robots = createRobots(initialRobotStates);
+        final var context = contextBuilder()
             .add("worldWidth", W)
             .add("worldHeight", H)
             .add(context(parameters))
             .add("robots", robots)
             .build();
-        var synchronizer = new RobotSynchronizer_Student(Arrays.copyOf(robots, robots.length), context);
+        final var synchronizer = new RobotSynchronizer_Student(Arrays.copyOf(robots, robots.length), context);
         synchronizer.setX(parameters.x(), context);
         synchronizer.setY(parameters.y(), context);
         synchronizer.setDirection(parameters.direction(), context);
         synchronizer.sync(context);
         for (int i = 0; i < robots.length; i++) {
-            int j = i;
+            final int j = i;
             Assertions2.assertEquals(
                 expectedRobotCounters[i],
                 robots[i].getRobotCounters(),

@@ -19,9 +19,9 @@ public class Main {
      *
      * @param args program arguments, currently ignored
      */
-    public static void main(String[] args) throws Throwable {
+    public static void main(final String[] args) throws Throwable {
 
-        var robot = new MultiFamilyRobot(0, 0, new RobotFamily[]{RobotFamily.SQUARE_AQUA, RobotFamily.SQUARE_BLACK});
+        final var robot = new MultiFamilyRobot(0, 0, new RobotFamily[]{RobotFamily.SQUARE_AQUA, RobotFamily.SQUARE_BLACK});
         System.out.println(robot);
 
     }
@@ -29,7 +29,7 @@ public class Main {
     @Test
     public void test() {
         World.reset();
-        var robot = new Robots_Student.MultiFamilyRobot_Student(
+        final var robot = new Robots_Student.MultiFamilyRobot_Student(
             new MultiFamilyRobot_Parameters(0, 0, new RobotFamily[]{RobotFamily.SQUARE_AQUA, RobotFamily.SQUARE_BLACK})
         );
         System.out.println(robot.object.getRobotFamily());

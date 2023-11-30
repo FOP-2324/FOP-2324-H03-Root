@@ -1,5 +1,21 @@
 package h03.robots;
 
+import fopbot.Robot;
+import fopbot.RobotFamily;
+import h03.CombinedPackageLink;
+import h03.Global;
+import h03.Utils;
+import org.tudalgo.algoutils.tutor.general.assertions.Assertions2;
+import org.tudalgo.algoutils.tutor.general.assertions.Context;
+import org.tudalgo.algoutils.tutor.general.reflections.BasicConstructorLink;
+import org.tudalgo.algoutils.tutor.general.reflections.BasicFieldLink;
+import org.tudalgo.algoutils.tutor.general.reflections.BasicMethodLink;
+import org.tudalgo.algoutils.tutor.general.reflections.BasicPackageLink;
+import org.tudalgo.algoutils.tutor.general.reflections.BasicTypeLink;
+import org.tudalgo.algoutils.tutor.general.reflections.FieldLink;
+import org.tudalgo.algoutils.tutor.general.reflections.MethodLink;
+import org.tudalgo.algoutils.tutor.general.reflections.PackageLink;
+
 import static h03.Global.BOOLEAN_LINK;
 import static h03.Global.INT_LINK;
 import static h03.Global.ROBOT_FAMILY_ARRAY_LINK;
@@ -19,24 +35,14 @@ import static org.tudalgo.algoutils.tutor.general.assertions.Assertions3.assertT
 import static org.tudalgo.algoutils.tutor.general.match.BasicReflectionMatchers.sameType;
 import static org.tudalgo.algoutils.tutor.general.match.BasicReflectionMatchers.sameTypes;
 
-import fopbot.Robot;
-import fopbot.RobotFamily;
-import h03.CombinedPackageLink;
-import h03.Global;
-import h03.Utils;
-import org.tudalgo.algoutils.tutor.general.assertions.Assertions2;
-import org.tudalgo.algoutils.tutor.general.assertions.Context;
-import org.tudalgo.algoutils.tutor.general.reflections.BasicConstructorLink;
-import org.tudalgo.algoutils.tutor.general.reflections.BasicFieldLink;
-import org.tudalgo.algoutils.tutor.general.reflections.BasicMethodLink;
-import org.tudalgo.algoutils.tutor.general.reflections.BasicPackageLink;
-import org.tudalgo.algoutils.tutor.general.reflections.BasicTypeLink;
-import org.tudalgo.algoutils.tutor.general.reflections.FieldLink;
-import org.tudalgo.algoutils.tutor.general.reflections.MethodLink;
-import org.tudalgo.algoutils.tutor.general.reflections.PackageLink;
-
+/**
+ * A unit test for testing the Student Robot classes.
+ */
 public class Robots_Student {
 
+    /**
+     * A PackageLink to the h03.robots package.
+     */
     public static final Late<PackageLink> ROBOTS_LINK = Late.of(
         "package h03.robots",
         () -> new CombinedPackageLink(
@@ -45,19 +51,33 @@ public class Robots_Student {
         )
     );
 
+    /**
+     * Don't instantiate this class.
+     */
     private Robots_Student() {
     }
 
-
+    /**
+     * A unit test for testing the MultiFamilyRobot student class.
+     */
     public static class MultiFamilyRobot_Student {
 
+        /**
+         * The MultiFamilyRobot class.
+         */
         public final Robot object;
 
+        /**
+         * The MultiFamilyRobot class link.
+         */
         public static final Late<BasicTypeLink> MULTI_FAMILY_ROBOT_LINK = Late.of(
             "class MultiFamilyRobot",
             () -> (BasicTypeLink) assertTypeExists(ROBOTS_LINK.get(), matcher("MultiFamilyRobot"))
         );
 
+        /**
+         * The MultiFamilyRobot#constructor link.
+         */
         public static final Late<BasicConstructorLink> MULTI_FAMILY_ROBOT_CONSTRUCTOR_TL = Late.of(
             "constructor MultiFamilyRobot(int,int,RobotFamily[])",
             () -> (BasicConstructorLink) assertConstructorExists(
@@ -66,6 +86,9 @@ public class Robots_Student {
             )
         );
 
+        /**
+         * The MultiFamilyRobot#families field link.
+         */
         public static final Late<BasicFieldLink> MULTI_FAMILY_ROBOT_FAMILIES_LINK = Late.of(
             "field families",
             () -> (BasicFieldLink) assertFieldExists(
@@ -74,6 +97,9 @@ public class Robots_Student {
             )
         );
 
+        /**
+         * The MultiFamilyRobot#exchange method link.
+         */
         public static final Late<BasicMethodLink> MULTI_FAMILY_ROBOT_EXCHANGE_LINK = Late.of(
             "method exchange()",
             () -> (BasicMethodLink) assertMethodExists(
@@ -82,6 +108,9 @@ public class Robots_Student {
             )
         );
 
+        /**
+         * The MultiFamilyRobot#move method link without parameter matching.
+         */
         public static final Late<BasicMethodLink> MULTI_FAMILY_ROBOT_MOVE_WITHOUT_PARAMETER_L = Late.of(
             "method move()",
             () -> (BasicMethodLink) assertMethodExists(
@@ -90,6 +119,9 @@ public class Robots_Student {
             )
         );
 
+        /**
+         * The MultiFamilyRobot#move method link with parameter matching.
+         */
         public static final Late<BasicMethodLink> MULTI_FAMILY_ROBOT_MOVE_WITH_PARAMETER_L = Late.of(
             "method move(boolean)",
             () -> (BasicMethodLink) assertMethodExists(
@@ -98,9 +130,14 @@ public class Robots_Student {
             )
         );
 
-        public MultiFamilyRobot_Student(MultiFamilyRobot_Parameters values) {
+        /**
+         * Creates a new MultiFamilyRobot_Student.
+         *
+         * @param values the parameters to initialize the MultiFamilyRobot with
+         */
+        public MultiFamilyRobot_Student(final MultiFamilyRobot_Parameters values) {
             MULTI_FAMILY_ROBOT_CONSTRUCTOR_TL.get();
-            var object = Assertions2.callObject(
+            final var object = Assertions2.callObject(
                 () -> mockX(MULTI_FAMILY_ROBOT_LINK.get(), values.x, values.y, values.families),
                 contextBuilder()
                     .subject(MULTI_FAMILY_ROBOT_CONSTRUCTOR_TL.get())
@@ -111,6 +148,11 @@ public class Robots_Student {
             this.object = Utils.assertIsInstance(object, Robot.class);
         }
 
+        /**
+         * Returns the state of the MultiFamilyRobot.
+         *
+         * @return the state of the MultiFamilyRobot
+         */
         public MultiFamilyRobot_State state() {
             return new MultiFamilyRobot_State(
                 object.getX(),
@@ -119,7 +161,12 @@ public class Robots_Student {
             );
         }
 
-        public void super_move(Context context) {
+        /**
+         * Calls the move method of the Robot.
+         *
+         * @param context the test context
+         */
+        public void super_move(final Context context) {
             Assertions2.call(
                 () -> ROBOT_MOVE.invoke(object),
                 contextBuilder()
@@ -130,7 +177,12 @@ public class Robots_Student {
             );
         }
 
-        public void move(Context context) {
+        /**
+         * Calls the move method of the MultiFamilyRobot.
+         *
+         * @param context the test context
+         */
+        public void move(final Context context) {
             Assertions2.call(
                 () -> MULTI_FAMILY_ROBOT_MOVE_WITHOUT_PARAMETER_L.get().invoke(object),
                 contextBuilder()
@@ -141,7 +193,13 @@ public class Robots_Student {
             );
         }
 
-        public void move(boolean shouldExchange, Context context) {
+        /**
+         * Calls the move method of the MultiFamilyRobot.
+         *
+         * @param shouldExchange whether the robot should exchange
+         * @param context        the test context
+         */
+        public void move(final boolean shouldExchange, final Context context) {
             Assertions2.call(
                 () -> MULTI_FAMILY_ROBOT_MOVE_WITH_PARAMETER_L.get().invoke(object, shouldExchange),
                 contextBuilder()
@@ -152,7 +210,12 @@ public class Robots_Student {
             );
         }
 
-        public void exchange(Context context) {
+        /**
+         * Calls the exchange method of the MultiFamilyRobot.
+         *
+         * @param context the test context
+         */
+        public void exchange(final Context context) {
             Assertions2.call(
                 () -> MULTI_FAMILY_ROBOT_EXCHANGE_LINK.get().invoke(object),
                 contextBuilder()
@@ -163,10 +226,22 @@ public class Robots_Student {
             );
         }
 
+        /**
+         * Returns the families of the MultiFamilyRobot.
+         *
+         * @return the families of the MultiFamilyRobot
+         */
         public RobotFamily[] families() {
             return MULTI_FAMILY_ROBOT_FAMILIES_LINK.get().get(object);
         }
 
+        /**
+         * The parameters to initialize a MultiFamilyRobot.
+         *
+         * @param x        the x coordinate
+         * @param y        the y coordinate
+         * @param families the families
+         */
         public record MultiFamilyRobot_Parameters(
             int x,
             int y,
@@ -174,6 +249,13 @@ public class Robots_Student {
         ) {
         }
 
+        /**
+         * The state of a MultiFamilyRobot.
+         *
+         * @param x      the x coordinate
+         * @param y      the y coordinate
+         * @param family the family
+         */
         public record MultiFamilyRobot_State(
             int x,
             int y,
@@ -182,15 +264,27 @@ public class Robots_Student {
         }
     }
 
+    /**
+     * A unit test for testing the RGBRobot student class.
+     */
     public static class RGBRobot_Student {
 
+        /**
+         * The RGBRobot class.
+         */
         public final Robot object;
 
+        /**
+         * The RGBRobot class link.
+         */
         public static final Late<BasicTypeLink> RGB_ROBOT_LINK = Late.of(
             "class RGBRobot",
             () -> (BasicTypeLink) assertTypeExists(ROBOTS_LINK.get(), matcher("RGBRobot"))
         );
 
+        /**
+         * The RGBRobot#constructor link.
+         */
         public static final Late<BasicConstructorLink> RGB_ROBOT_CONSTRUCTOR_LINK = Late.of(
             "constructor RGBRobot(int,int,boolean)",
             () -> (BasicConstructorLink) assertConstructorExists(
@@ -199,6 +293,9 @@ public class Robots_Student {
             )
         );
 
+        /**
+         * The RGBRobot#testRGB method link.
+         */
         public static final Late<BasicMethodLink> RGB_ROBOT_TEST_RGB_LINK = Late.of(
             "method testRGB()",
             () -> (BasicMethodLink) assertMethodExists(
@@ -207,9 +304,14 @@ public class Robots_Student {
             )
         );
 
-        public RGBRobot_Student(RGBRobot_Parameters values) {
+        /**
+         * Creates a new RGBRobot_Student.
+         *
+         * @param values the parameters to initialize the RGBRobot with
+         */
+        public RGBRobot_Student(final RGBRobot_Parameters values) {
             RGB_ROBOT_CONSTRUCTOR_LINK.get();
-            var object = Assertions2.callObject(
+            final var object = Assertions2.callObject(
                 () -> mockX(RGB_ROBOT_LINK.get(), values.x, values.y, values.inverted),
                 contextBuilder()
                     .subject(RGB_ROBOT_CONSTRUCTOR_LINK.get())
@@ -220,7 +322,10 @@ public class Robots_Student {
             this.object = Utils.assertIsInstance(object, Robot.class);
         }
 
-        public void testRGB(Context context) {
+        /**
+         * Tests that the RGBRobot#testRGB was declared correctly.
+         */
+        public void testRGB(final Context context) {
             Assertions2.call(
                 () -> RGB_ROBOT_TEST_RGB_LINK.get().invoke(object),
                 contextBuilder()
@@ -231,7 +336,12 @@ public class Robots_Student {
             );
         }
 
-        public void exchange(Context context) {
+        /**
+         * Calls the exchange method of the RGBRobot.
+         *
+         * @param context the test context
+         */
+        public void exchange(final Context context) {
             Assertions2.call(
                 () -> MULTI_FAMILY_ROBOT_EXCHANGE_LINK.get().invoke(object),
                 contextBuilder()
@@ -242,10 +352,22 @@ public class Robots_Student {
             );
         }
 
+        /**
+         * Returns the families of the RGBRobot.
+         *
+         * @return the families of the RGBRobot
+         */
         public RobotFamily[] families() {
             return MULTI_FAMILY_ROBOT_FAMILIES_LINK.get().get(object);
         }
 
+        /**
+         * The parameters to initialize a RGBRobot.
+         *
+         * @param x        the x coordinate
+         * @param y        the y coordinate
+         * @param inverted whether the robot is inverted
+         */
         public record RGBRobot_Parameters(
             int x,
             int y,
@@ -255,15 +377,27 @@ public class Robots_Student {
 
     }
 
+    /**
+     * A unit test for testing the ChessBoardRobot student class.
+     */
     public static class ChessBoardRobot_Student {
 
+        /**
+         * The ChessBoardRobot class.
+         */
         public final Robot object;
 
+        /**
+         * The ChessBoardRobot class link.
+         */
         public static final Late<BasicTypeLink> CHESS_BOARD_ROBOT_LINK = Late.of(
             "class ChessBoardRobot",
             () -> (BasicTypeLink) assertTypeExists(ROBOTS_LINK.get(), matcher("ChessBoardRobot"))
         );
 
+        /**
+         * The ChessBoardRobot#constructor link.
+         */
         public static final Late<BasicConstructorLink> CHESS_BOARD_ROBOT_CONSTRUCTOR_1_LINK = Late.of(
             "constructor ChessBoardRobot(int,int,RobotFamily,RobotFamily)",
             () -> (BasicConstructorLink) assertConstructorExists(
@@ -272,6 +406,9 @@ public class Robots_Student {
             )
         );
 
+        /**
+         * The other ChessBoardRobot#constructor link.
+         */
         public static final Late<BasicConstructorLink> CHESS_BOARD_ROBOT_CONSTRUCTOR_2_LINK = Late.of(
             "constructor ChessBoardRobot(int,int)",
             () -> (BasicConstructorLink) assertConstructorExists(
@@ -280,9 +417,14 @@ public class Robots_Student {
             )
         );
 
-        public ChessBoardRobot_Student(ChessBoardRobot_Parameters_1 parameters) {
+        /**
+         * Creates a new ChessBoardRobot_Student.
+         *
+         * @param parameters the parameters to initialize the ChessBoardRobot with
+         */
+        public ChessBoardRobot_Student(final ChessBoardRobot_Parameters_1 parameters) {
             CHESS_BOARD_ROBOT_CONSTRUCTOR_1_LINK.get();
-            var object = Assertions2.callObject(
+            final var object = Assertions2.callObject(
                 () -> mockX(CHESS_BOARD_ROBOT_LINK.get(), parameters.x, parameters.y, parameters.even, parameters.odd),
                 contextBuilder()
                     .subject(CHESS_BOARD_ROBOT_CONSTRUCTOR_1_LINK.get())
@@ -293,9 +435,14 @@ public class Robots_Student {
             this.object = Utils.assertIsInstance(object, Robot.class);
         }
 
-        public ChessBoardRobot_Student(ChessBoardRobot_Parameters_2 parameters) {
+        /**
+         * Creates a new ChessBoardRobot_Student.
+         *
+         * @param parameters the parameters to initialize the ChessBoardRobot with
+         */
+        public ChessBoardRobot_Student(final ChessBoardRobot_Parameters_2 parameters) {
             CHESS_BOARD_ROBOT_CONSTRUCTOR_2_LINK.get();
-            var object = Assertions2.callObject(
+            final var object = Assertions2.callObject(
                 () -> mockX(CHESS_BOARD_ROBOT_LINK.get(), parameters.x, parameters.y),
                 contextBuilder()
                     .subject(CHESS_BOARD_ROBOT_CONSTRUCTOR_2_LINK.get())
@@ -306,10 +453,23 @@ public class Robots_Student {
             this.object = Utils.assertIsInstance(object, Robot.class);
         }
 
+        /**
+         * Returns the families of the ChessBoardRobot.
+         *
+         * @return the families of the ChessBoardRobot
+         */
         public RobotFamily[] families() {
             return MULTI_FAMILY_ROBOT_FAMILIES_LINK.get().get(object);
         }
 
+        /**
+         * The parameters to initialize a ChessBoardRobot.
+         *
+         * @param x    the x coordinate
+         * @param y    the y coordinate
+         * @param even the even family
+         * @param odd  the odd family
+         */
         public record ChessBoardRobot_Parameters_1(
             int x,
             int y,
@@ -318,6 +478,12 @@ public class Robots_Student {
         ) {
         }
 
+        /**
+         * The parameters to initialize a ChessBoardRobot.
+         *
+         * @param x the x coordinate
+         * @param y the y coordinate
+         */
         public record ChessBoardRobot_Parameters_2(
             int x,
             int y

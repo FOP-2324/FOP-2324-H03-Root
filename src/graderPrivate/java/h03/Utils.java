@@ -7,14 +7,15 @@ import org.tudalgo.algoutils.tutor.general.assertions.Assertions2;
 import org.tudalgo.algoutils.tutor.general.assertions.Context;
 import org.tudalgo.algoutils.tutor.general.assertions.PreCommentSupplier;
 import org.tudalgo.algoutils.tutor.general.assertions.ResultOfFail;
-import org.tudalgo.algoutils.tutor.general.assertions.expected.ExpectedObject;
+import org.tudalgo.algoutils.tutor.general.reflections.BasicTypeLink;
 import org.tudalgo.algoutils.tutor.general.reflections.TypeLink;
 
 import java.lang.reflect.InvocationTargetException;
 
 import static org.mockito.Mockito.CALLS_REAL_METHODS;
 import static org.mockito.Mockito.withSettings;
-import static org.tudalgo.algoutils.tutor.general.assertions.Assertions2.testOfObjectBuilder;
+import static org.tudalgo.algoutils.tutor.general.assertions.Assertions3.*;
+import static org.tudalgo.algoutils.tutor.general.match.BasicMatchers.equalObject;
 
 /**
  * Test utilities.
@@ -36,13 +37,7 @@ public class Utils {
      */
     @SuppressWarnings("unchecked")
     public static <T> T assertIsInstance(final Object object, final Class<T> type) {
-        testOfObjectBuilder().expected(
-            ExpectedObject.of(type, t -> type.isAssignableFrom(object.getClass()), n -> "subclass of " + n
-            )
-        ).build().run(object.getClass()).check(
-            Assertions2.contextBuilder().subject(object.getClass()).build(),
-            x -> "class %s is not a subclass of %s".formatted(object.getClass().getSimpleName(), type.getSimpleName())
-        );
+        assertCorrectSuperType(BasicTypeLink.of(object.getClass()), equalObject(type));
         return (T) object;
     }
 

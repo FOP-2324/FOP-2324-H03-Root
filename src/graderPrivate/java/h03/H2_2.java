@@ -23,7 +23,7 @@ import static org.tudalgo.algoutils.tutor.general.assertions.Assertions2.context
 import static org.tudalgo.algoutils.tutor.general.assertions.Assertions2.contextBuilder;
 import static org.tudalgo.algoutils.tutor.general.assertions.Assertions3.assertCorrectModifiers;
 import static org.tudalgo.algoutils.tutor.general.assertions.Assertions3.assertCorrectSuperType;
-import static org.tudalgo.algoutils.tutor.general.match.TypeMatchers.sameSuperType;
+import static org.tudalgo.algoutils.tutor.general.match.BasicMatchers.equalObject;
 import static org.tudalgo.algoutils.tutor.general.reflections.Modifier.PUBLIC;
 
 /**
@@ -42,7 +42,7 @@ public class H2_2 {
     public void testClassParentClass() {
         assertCorrectSuperType(
             CHESS_BOARD_ROBOT_LINK.get(),
-            sameSuperType(MULTI_FAMILY_ROBOT_LINK.get())
+            equalObject(MULTI_FAMILY_ROBOT_LINK.get())
         );
     }
 

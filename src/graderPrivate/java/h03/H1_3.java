@@ -1,5 +1,17 @@
 package h03;
 
+import static h03.Global.VOID_LINK;
+import static h03.robots.Robots_Student.MultiFamilyRobot_Student.MULTI_FAMILY_ROBOT_EXCHANGE_LINK;
+import static org.tudalgo.algoutils.tutor.general.assertions.Assertions2.assertEquals;
+import static org.tudalgo.algoutils.tutor.general.assertions.Assertions2.context;
+import static org.tudalgo.algoutils.tutor.general.assertions.Assertions2.contextBuilder;
+import static org.tudalgo.algoutils.tutor.general.assertions.Assertions2.emptyContext;
+import static org.tudalgo.algoutils.tutor.general.assertions.Assertions3.assertCorrectModifiers;
+import static org.tudalgo.algoutils.tutor.general.assertions.Assertions3.assertCorrectReturnType;
+import static org.tudalgo.algoutils.tutor.general.match.BasicReflectionMatchers.sameType;
+import static org.tudalgo.algoutils.tutor.general.reflections.Modifier.NON_STATIC;
+import static org.tudalgo.algoutils.tutor.general.reflections.Modifier.PUBLIC;
+
 import fopbot.World;
 import h03.robots.Late;
 import h03.robots.Robots_Student;
@@ -12,18 +24,6 @@ import org.junitpioneer.jupiter.json.JsonClasspathSource;
 import org.junitpioneer.jupiter.json.Property;
 import org.sourcegrade.jagr.api.rubric.TestForSubmission;
 import org.tudalgo.algoutils.tutor.general.assertions.Assertions4;
-
-import static h03.Global.VOID_LINK;
-import static h03.robots.Robots_Student.MultiFamilyRobot_Student.MULTI_FAMILY_ROBOT_EXCHANGE_LINK;
-import static org.tudalgo.algoutils.tutor.general.assertions.Assertions2.assertEquals;
-import static org.tudalgo.algoutils.tutor.general.assertions.Assertions2.context;
-import static org.tudalgo.algoutils.tutor.general.assertions.Assertions2.contextBuilder;
-import static org.tudalgo.algoutils.tutor.general.assertions.Assertions2.emptyContext;
-import static org.tudalgo.algoutils.tutor.general.assertions.Assertions3.assertCorrectModifiers;
-import static org.tudalgo.algoutils.tutor.general.assertions.Assertions3.assertCorrectReturnType;
-import static org.tudalgo.algoutils.tutor.general.match.BasicReflectionMatchers.sameType;
-import static org.tudalgo.algoutils.tutor.general.reflections.Modifier.NON_STATIC;
-import static org.tudalgo.algoutils.tutor.general.reflections.Modifier.PUBLIC;
 
 /**
  * H1_3 Tests.
@@ -93,7 +93,7 @@ public class H1_3 {
         }
     }
 
-    public static Late<?> VA_CHECK = Late.of(() -> {
+    public static Late<?> VA_CHECK = Late.of("", () -> {
         Assertions4.assertNotConditional(
             MULTI_FAMILY_ROBOT_EXCHANGE_LINK.get().getCtElement(),
             emptyContext()

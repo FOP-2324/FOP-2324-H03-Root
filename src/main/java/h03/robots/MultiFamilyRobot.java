@@ -37,10 +37,6 @@ public class MultiFamilyRobot extends Robot {
      * the first robot family in the sequence will be used again.
      */
     public void exchange() {
-        if (true) {
-            System.out.print("");
-        }
-
         current = (current + 1) % families.length;
         setRobotFamily(families[current]);
     }

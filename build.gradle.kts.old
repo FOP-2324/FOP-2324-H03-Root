@@ -17,16 +17,22 @@ jagr {
         }
     }
     graders {
-        val graderPrivate by creating {
-            graderName.set("H03-Private")
+        val graderPublic by creating {
+            graderName.set("H03-Public")
             rubricProviderName.set("h03.H03_RubricProvider")
             configureDependencies {
-                implementation(libs.annotations)
                 implementation(libs.algoutils.tutor)
-                implementation(libs.fopbot)
-                implementation(libs.mockito.core)
                 implementation("org.junit-pioneer:junit-pioneer:1.9.0")
+                implementation("org.mockito:mockito-core:5.2.0")
+                implementation("net.bytebuddy:byte-buddy:1.14.9")
+                implementation("net.bytebuddy:byte-buddy-agent:1.14.9")
+                implementation("org.objenesis:objenesis:3.3")
             }
+        }
+        val graderPrivate by creating {
+            parent(graderPublic)
+            graderName.set("H03-Private")
+
         }
     }
 }
@@ -35,8 +41,8 @@ dependencies {
     implementation(libs.annotations)
     implementation(libs.algoutils.student)
     implementation(libs.fopbot)
-    implementation(libs.mockito.core)
     testImplementation(libs.junit.core)
+
 }
 
 application {

@@ -18,8 +18,8 @@ public class ChessBoardRobot extends MultiFamilyRobot {
      * @param even the robot family to use for even fields
      * @param odd  the robot family to use for odd fields
      */
-    public ChessBoardRobot(int x, int y, RobotFamily even, RobotFamily odd) {
-        super(x, y, (x + y) % 2 == 0 ? new RobotFamily[] {even, odd} : new RobotFamily[] {odd, even});
+    public ChessBoardRobot(final int x, final int y, final RobotFamily even, final RobotFamily odd) {
+        super(x, y, (x + y) % 2 == 0 ? new RobotFamily[]{even, odd} : new RobotFamily[]{odd, even});
     }
 
     /**
@@ -30,7 +30,7 @@ public class ChessBoardRobot extends MultiFamilyRobot {
      * @param x the position on the x-axis
      * @param y the position on the y-axis
      */
-    public ChessBoardRobot(int x, int y) {
+    public ChessBoardRobot(final int x, final int y) {
         this(x, y, RobotFamily.SQUARE_BLACK, RobotFamily.SQUARE_WHITE);
     }
 }

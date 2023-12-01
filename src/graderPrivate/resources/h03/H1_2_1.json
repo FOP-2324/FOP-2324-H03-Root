@@ -1,0 +1,47 @@
+[
+  {
+    "parameters": {
+      "x": 0,
+      "y": 0,
+      "families": [
+        "SQUARE_RED",
+        "SQUARE_BLUE"
+      ]
+    },
+    "expected": {
+      "x": 0,
+      "y": 0,
+      "family": "SQUARE_RED"
+    }
+  },
+  {
+    "parameters": {
+      "x": 4,
+      "y": 2,
+      "families": [
+        "SQUARE_BLUE",
+        "SQUARE_WHITE",
+        "SQUARE_BLACK"
+      ]
+    },
+    "expected": {
+      "x": 4,
+      "y": 2,
+      "family": "SQUARE_BLUE"
+    }
+  },
+  {
+    "parameters": {
+      "x": 2,
+      "y": 4,
+      "families": [
+        "SQUARE_RED"
+      ]
+    },
+    "expected": {
+      "x": 2,
+      "y": 4,
+      "family": "SQUARE_RED"
+    }
+  }
+]

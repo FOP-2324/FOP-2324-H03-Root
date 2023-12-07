@@ -6,7 +6,7 @@ import org.sourcegrade.jagr.api.rubric.JUnitTestRef;
 import org.sourcegrade.jagr.api.rubric.Rubric;
 import org.sourcegrade.jagr.api.rubric.RubricProvider;
 
-public class H03_RubricProvider implements RubricProvider {
+public class H03_RubricProvider_Javadoc implements RubricProvider {
 
     public static final Rubric RUBRIC = Rubric.builder()
         .title("H03 | Multi Family & Synchronizers")

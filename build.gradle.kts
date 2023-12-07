@@ -31,6 +31,7 @@ jagr {
         val graderJavadoc by creating {
             parent(graderPrivate)
             graderName.set("H03-Javadoc")
+            rubricProviderName.set("h03.H03_RubricProvider_Javadoc")
         }
     }
 }

@@ -28,6 +28,11 @@ jagr {
                 implementation("org.junit-pioneer:junit-pioneer:1.9.0")
             }
         }
+        val graderJavadoc by creating {
+            parent(graderPrivate)
+            graderName.set("H03-Javadoc")
+            rubricProviderName.set("h03.H03_RubricProvider_Javadoc")
+        }
     }
 }
 

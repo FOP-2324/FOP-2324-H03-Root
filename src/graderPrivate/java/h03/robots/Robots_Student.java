@@ -319,7 +319,7 @@ public class Robots_Student {
                     .build(),
                 r -> UNEXPECTED_EXCEPTION
             );
-            this.object = Utils.assertIsInstance(object, Robot.class);
+            this.object = Utils.assertIsInstance(object, MultiFamilyRobot.class);
         }
 
         /**
@@ -432,7 +432,7 @@ public class Robots_Student {
                     .build(),
                 r -> UNEXPECTED_EXCEPTION
             );
-            this.object = Utils.assertIsInstance(object, Robot.class);
+            this.object = Utils.assertIsInstance(object, MultiFamilyRobot.class);
         }
 
         /**
@@ -450,7 +450,7 @@ public class Robots_Student {
                     .build(),
                 r -> UNEXPECTED_EXCEPTION
             );
-            this.object = Utils.assertIsInstance(object, Robot.class);
+            this.object = Utils.assertIsInstance(object, MultiFamilyRobot.class);
         }
 
         /**

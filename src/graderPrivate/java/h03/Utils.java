@@ -37,7 +37,7 @@ public class Utils {
      */
     @SuppressWarnings("unchecked")
     public static <T> T assertIsInstance(final Object object, final Class<T> type) {
-        assertCorrectSuperType(BasicTypeLink.of(object.getClass()), equalObject(type));
+        assertCorrectSuperType(BasicTypeLink.of(object.getClass()), equalObject(BasicTypeLink.of(type)));
         return (T) object;
     }
 

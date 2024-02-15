@@ -57,7 +57,7 @@ public class H3_4 {
             .add("worldWidth", W)
             .add("worldHeight", H)
             .add(context(parameters))
-            .add("robots", robots)
+            .add("robots", Arrays.toString(robots))
             .build();
         final var synchronizer = new RobotSynchronizer_Student(Arrays.copyOf(robots, robots.length), context);
         if (parameters.x() != -1) {
@@ -93,7 +93,7 @@ public class H3_4 {
             .add("worldWidth", W)
             .add("worldHeight", H)
             .add(context(parameters))
-            .add("robots", robots)
+            .add("robots", Arrays.toString(robots))
             .build();
         final var synchronizer = new RobotSynchronizer_Student(Arrays.copyOf(robots, robots.length), context);
         synchronizer.setX(parameters.x(), context);
